@@ -1,0 +1,25 @@
+---
+# tasks file for languages
+- name: clone golang
+  hg: repo=https://code.google.com/p/go revision={{ go_version }} dest={{ homedir }}/.golang force=yes
+
+- name: compile golang
+  shell: creates={{ homedir }}/.golang/bin/go chdir={{ homedir }}/.golang/src {{ homedir }}/.golang/src/make.bash
+
+- name: make R module dir
+  file: path={{ homedir }}/.rlang/lib/ state=directory
+- copy: src=Rprofile dest={{ homedir }}/.Rprofile
+- copy: src=Renviron dest={{ homedir }}/.Renviron
+
+# There's some issue here with the ldpath -- commenting out for now.
+#- name: Download rust setup script
+#  get_url: dest=/tmp/rustup.sh url=https://static.rust-lang.org/rustup.sh mode=0755
+#- name: Install rust
+#  shell: creates={{ homedir }}/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix={{ homedir }}/.rustlang
+
+- yum: name={{ item }} state=latest
+  with_items:
+    - haskell-platform
+    - R
+  tags:
+    - packages

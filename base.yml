@@ -1,0 +1,8 @@
+---
+- name: Configure base workstation
+  hosts: self
+  vars_files:
+    - vars/global.yml
+  roles:
+    - unbound
+    - languages

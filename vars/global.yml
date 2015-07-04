@@ -1,0 +1,46 @@
+---
+homedir: /home/ryansb
+global_pkgs:
+    - ack
+    - bash-completion
+    - bind-utils
+    - bzr
+    - ccze
+    - fossil
+    - fossil-doc
+    - git
+    - htop
+    - iotop
+    - ldns-utils
+    - mercurial
+    - mosh
+    - msmtp
+    - nc
+    - nload
+    - ntpdate
+    - openssh-clients
+    - pigz
+    - pv
+    - python-pip
+    - python-virtualenvwrapper
+    - ranger
+    - rsync
+    - strace
+    - svn
+    - tar
+    - tig
+    - traceroute
+    - vim-enhanced
+    - xz
+    - zsh
+
+gui_pkgs:
+    - cmus
+    - gnome-tweak-tool
+    - levien-inconsolata-fonts
+    - msimonson-anonymouspro-fonts
+    - pcaro-hermit-fonts
+    - terminus-fonts
+    - terminus-fonts-console
+    - transmission-cli
+    - transmission-daemon

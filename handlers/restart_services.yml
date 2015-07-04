@@ -1,0 +1,18 @@
+########################################
+# Handlers for restarting services
+#
+
+- name: restart crond
+  action: service name=crond state=restarted
+
+- name: restart firewalld
+  action: service name=firewalld state=restarted
+
+- name: restart sshd
+  action: service name=sshd state=restarted
+
+- name: restart unbound
+  action: service name=unbound state=restarted
+
+- name: reload systemd
+  command: systemctl daemon-reload

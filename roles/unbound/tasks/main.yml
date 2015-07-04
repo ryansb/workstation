@@ -1,0 +1,15 @@
+---
+- yum: name=unbound state=latest
+  tags:
+    - packages
+
+- file: path=/etc/unbound/local.d/ state=directory mode=0755 owner=root group=unbound
+  sudo: True
+
+- shell: curl -s '{{ ad_dnsbl }}'
+  register: ad_hosts
+
+- template: src=ad_servers.conf.j2 dest=/etc/unbound/local.d/ad_servers.conf owner=root group=unbound mode=0644
+  sudo: True
+  notify:
+    - restart unbound
