@@ -1,0 +1,106 @@
+#
+# A theme based on typofree.vim
+#
+# Authors:
+#   Ryan Brown <sb@ryansb.com>
+#
+
+# Load dependencies.
+pmodload 'helper'
+autoload -Uz vcs_info
+
+function prompt_ryansb_precmd () {
+  vcs_info prompt
+
+  # version control info
+  if [[ "x$vcs_info_msg_0_"  != "x" ]]; then
+      PR_vcs_info="${PR_op}%{$FG[065]%}$vcs_info_msg_0_%{$PR_rc%}${PR_cp}"
+  else
+      PR_vcs_info=""
+  fi
+
+  # Deal with virtualenv stuff
+  local venv_name="`basename \"$VIRTUAL_ENV\"`"
+  if [[ "x$venv_name" != "x" ]] ; then
+      PR_venv_name="${PR_op}%{$FG[209]%}$venv_name%{$PR_rc%}${PR_cp}"
+  else
+      PR_venv_name=""
+  fi
+}
+
+
+function prompt_ryansb_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_ryansb_precmd
+
+  # P.C. Shyamshankar <sykora@lucentbeing.com>
+  # http://lucentbeing.com/blog/that-256-color-thing/
+  # Big thanks for awesome 256-color compatibility
+  typeset -Ag FX FG BG
+  FX=(
+      reset     "[00m"
+      bold      "[01m" no-bold      "[22m"
+      italic    "[03m" no-italic    "[23m"
+      underline "[04m" no-underline "[24m"
+      blink     "[05m" no-blink     "[25m"
+      reverse   "[07m" no-reverse   "[27m"
+  )
+  for color in {000..255}; do
+      FG[$color]="[38;5;${color}m"
+      BG[$color]="[48;5;${color}m"
+  done
+  # end P.C. Shyamshankar
+
+  # color codes from typofree.vim
+  # 016 028 065 067 088
+  # 094 127 130 137 208
+  # 209 215 231
+  # greys
+  # 236 238 240 247
+
+  #set the bracket color
+  PR_bc=$FG[247]
+  PR_rc=$FG[255]
+
+  #opening and closing parens
+  PR_op="%{$PR_bc%}─[%{$PR_rc%}"
+  PR_cp="%{$PR_bc%}]%{$PR_rc%}"
+
+  PR_path_p="${PR_op}%{$FG[208]%}%~%{$PR_rc%}${PR_cp}"
+  PR_user_host="${PR_op}%{$FG[215]%}%n@%m%{$PR_fg[cyan]%}${PR_cp}"
+
+  #conditional stuff
+  PR_ret_status="%(?,,${PR_op}%{$FG[088]%}%?%{$PR_rc%}${PR_cp})"
+  PR_smiley="%(?,%{$FG[028]%}:%)%{$PR_rc%},%{$FG[088]%}:(%{$PR_rc%})"
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format "%{$PR_bc%}%# %{$PR_rc%}"
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format "%{$FG[127]%}$ %{$PR_rc%}"
+
+  zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla p4 fossil cvs svn
+  zstyle ':vcs_info:*' branchformat '%b'
+  zstyle ':vcs_info:*' formats '%s|%b%u%c|%0.6i'
+  zstyle ':vcs_info:*' get-revision true
+  zstyle ':vcs_info:*' stagedstr '[38;5;208m✔[38;5;065m'
+  zstyle ':vcs_info:*' unstagedstr '[38;5;067m✗[38;5;065m'
+  zstyle ':vcs_info:*' check-for-changes true
+
+
+  #and now, the prompt
+  PROMPT='%{$PR_bc%}╭%{$PR_rc%}${PR_path_p}%{$PR_bc%}%{$PR_rc%}${PR_user_host}${PR_ret_status}${PR_venv_name}${PR_vcs_info}
+%{$PR_bc%}╰%{$PR_rc%}${PR_op}${PR_smiley}${PR_cp} ${editor_info[keymap]}'
+  PR_cur_cmd="%{$FG[208]%}%_${PR_cp}"
+  PROMPT2='%{$PR_bc%}%_ |%{$PR_rc%} '
+  SPROMPT='correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_ryansb_setup "$@"

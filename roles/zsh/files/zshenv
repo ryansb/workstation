@@ -90,6 +90,6 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-eval "$(rbenv init -)"
+eval "$(which pyenv 2>/dev/null && pyenv init -)" 2>/dev/null
+eval "$(which pyenv 2>/dev/null && pyenv virtualenv-init -)" 2>/dev/null
+eval "$(which rbenv 2>/dev/null && rbenv init -)" 2>/dev/null
