@@ -1,0 +1,31 @@
+---
+- yum: name=zsh state=latest
+  tags:
+    - packages
+
+- name: Determining username
+  shell: whoami
+  register: whoami
+
+- name: Changing the default shell to zsh
+  sudo: True
+  user: shell=/usr/bin/zsh
+        user={{ whoami.stdout }}
+
+- git: repo=https://github.com/sorin-ionescu/prezto.git
+       dest=~/.zprezto
+
+- file: state=directory
+        name=~/.zsh
+
+- git: repo=https://github.com/rupa/z.git
+       dest=~/.zsh/z_cd_jumper
+
+- copy: src={{ item }}
+        dest=~/.zsh/{{ item }}
+  with_items:
+    - zlogin
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc
