@@ -1,10 +1,15 @@
 ---
 # tasks file for languages
 - name: clone golang
-  hg: repo=https://code.google.com/p/go revision={{ go_version }} dest={{ homedir }}/.golang force=yes
+  hg: repo=https://code.google.com/p/go
+      revision={{ go_version }}
+      dest=~/.golang
+      force=yes
 
 - name: compile golang
-  shell: creates={{ homedir }}/.golang/bin/go chdir={{ homedir }}/.golang/src {{ homedir }}/.golang/src/make.bash
+  shell: creates=~/.golang/bin/go
+         chdir=~/.golang/src
+         ~/.golang/src/make.bash
 
 - name: make R module dir
   file: path={{ homedir }}/.rlang/lib/ state=directory

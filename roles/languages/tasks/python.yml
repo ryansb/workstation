@@ -1,0 +1,29 @@
+---
+- yum: name={{ item }} state=latest
+  sudo: true
+  with_items:
+  - libxml2-devel
+  - libxslt-devel
+  - libyaml-devel
+  - blas-devel
+  - python-setuptools
+  tags:
+    - packages
+
+- shell: creates=/bin/pip easy_install pip
+  tags:
+    - packages
+
+- pip: name={{ item }} state=latest
+  sudo: true
+  with_items:
+  - virtualenvwrapper
+  - wheel
+  - pip
+  - pipsi
+  tags:
+    - packages
+
+- git: repo=https://github.com/yyuu/pyenv.git
+       path=~/.pyenv
+       revision={{ pyenv_version }}
