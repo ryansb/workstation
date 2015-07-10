@@ -1,8 +1,10 @@
 ---
-- name: Configure base system
+- name: Configure GUI workstation
   hosts: self
   vars_files:
     - vars/global.yml
   roles:
+    - unbound
     - languages
     - zsh
+    - irc
