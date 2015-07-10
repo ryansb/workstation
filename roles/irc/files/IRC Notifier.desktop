@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.bin/inotify-daemon
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=IRC Notifier
+Comment[en_US]=
+X-GNOME-Autostart-Delay=1
