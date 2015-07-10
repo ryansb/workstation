@@ -52,14 +52,14 @@ export RBENV_ROOT="$HOME/.rbenv"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  $path
+  $HOME/.bin
+  $HOME/.local/bin
   /usr/local/{bin,sbin,heroku/bin}
   $GOPATH/bin
   $GOROOT/bin
-  $HOME/.local/bin
   $HOME/.pyenv/bin
   $HOME/.rbenv/bin
-  /usr/local/heroku/bin
+  $path
 )
 
 #

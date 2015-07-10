@@ -70,3 +70,6 @@
 - file: src=~/.zsh/custom
         dest=~/.zprezto/modules/custom
         state=link
+
+- file: path=~/.bin
+        state=directory
