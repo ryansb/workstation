@@ -1,10 +1,11 @@
 ---
 # tasks file for languages
 - name: clone golang
-  hg: repo=https://code.google.com/p/go
-      revision={{ go_version }}
-      dest=~/.golang
-      force=yes
+  git: repo=https://go.googlesource.com/go
+       version={{ go_version }}
+       dest=~/.golang
+       force=yes
+       depth=1
 
 - name: compile golang
   shell: creates=~/.golang/bin/go
