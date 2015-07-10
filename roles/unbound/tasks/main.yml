@@ -1,5 +1,12 @@
 ---
 - yum: name=unbound state=latest
+  sudo: true
+  tags:
+    - packages
+
+- yum: name=dnssec-trigger state=latest
+  sudo: true
+  when: workstation_role == "gui"
   tags:
     - packages
 

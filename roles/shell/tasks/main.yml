@@ -1,5 +1,6 @@
 ---
 - yum: name=zsh state=latest
+  sudo: true
   tags:
     - packages
 
@@ -78,6 +79,7 @@
 
 ### Other dotfiles
 - yum: name={{ item }} state=latest
+  sudo: true
   with_items:
   - git
   - tig

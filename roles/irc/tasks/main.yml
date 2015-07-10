@@ -2,13 +2,17 @@
 # tasks file for irc
 - get_url: url=https://raw.githubusercontent.com/m4v/inotify-daemon/stable/inotify-daemon
            dest=~/.bin/inotify-daemon
+  when: workstation_role == "gui"
 
 - file: path=~/.bin/inotify-daemon
         mode=0755
+  when: workstation_role == "gui"
 
 - copy: dest="~/.config/autostart/IRC Notifier.desktop"
         src="IRC Notifier.desktop"
+  when: workstation_role == "gui"
 
 - yum: name=weechat state=latest
+  sudo: true
   tags:
   - packages

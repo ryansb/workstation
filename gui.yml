@@ -1,6 +1,8 @@
 ---
 - name: Configure GUI workstation
   hosts: self
+  vars:
+    workstation_role: gui
   vars_files:
     - vars/global.yml
   roles:
