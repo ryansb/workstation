@@ -30,13 +30,14 @@
 - copy: src={{ item }}
         dest=~/.zsh/.{{ item }}
   with_items:
-    - zcompdump
-    - zhistory
     - zlogin
     - zpreztorc
     - zprofile
     - zshenv
     - zshrc
+
+- file: path=~/.zsh/.zhistory
+- file: path=~/.zsh/.zcompdump
 
 - copy: src={{ item }}
         dest=~/.zsh/custom/{{ item }}
