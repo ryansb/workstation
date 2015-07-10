@@ -1,3 +1,17 @@
 ---
 go_version: 'release-branch.go1.4'
+
 pyenv_version: 'v20150601'
+pyenv_venv_version: 'v20150526'
+python_installs:
+ - pypy3-2.4.0
+ - pypy-2.5.1
+ - 2.7.9
+ - 3.3.6
+ - 3.4.3
+ #- 3.5-dev
+
+rbenv_version: 'master'
+rbenv_build_version: 'v20150709'
+ruby_installs:
+  - 2.2.2
