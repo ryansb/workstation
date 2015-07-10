@@ -1,0 +1,11 @@
+#Ryan Brown's Mercurial config file
+[ui]
+username = Ryan Brown <sb@ryansb.com>
+editor = vim
+verbose = true
+ssh = ssh -C
+
+[alias]
+latest = log --limit 5
+pu = pull -u
+c = commit

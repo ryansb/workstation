@@ -1,0 +1,65 @@
+[user]
+	name = Ryan S. Brown
+	email = sb@ryansb.com
+	signingkey = sb@ryansb.com
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	copr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' - # checkout pull request
+	# FIXME
+	brdate = for-each-ref --sort=committerdate --format=format:'%C(green)%(committerdate:iso8601)%C(reset) %C(bold blue)%(committerdate:relative)%C(reset) %(refname:short)' refs/heads/
+	branch-date = "!git for-each-ref --sort=committerdate --format='%1B[32m%(committerdate:iso8601) %1B[34m%(committerdate:relative) %1B[0;m%(refname:short)' refs/heads/"
+	co = checkout
+	cc = "!find $(git rev-parse --show-toplevel) -name '*.pyc' -delete; git-checkout"
+	lol = log  --graph --abbrev-commit --decorate --date=relative --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	lola = log --graph --abbrev-commit --decorate --date=relative --all --pretty=oneline
+	ls = log --graph --abbrev-commit --color --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset'
+	la = log --graph --abbrev-commit --color --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset' --all
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --numstat
+	l1 = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --numstat -1
+	ld = log --pretty=format:'%C(yellow)%h%Creset %Cgreen%ad%Cred%d %Creset%s%Cblue [%cn]%Creset' --decorate --date=relative
+	fl = log -u
+	f = "!git ls-files | grep -i"
+	aliases = "!git config -l | grep alias | cut -c 7-"
+	stat = log --stat --format=oneline --decorate --abbrev-commit
+	lasttag = describe --tags --abbrev=0
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+[rebase]
+	stat = yes
+[branch]
+	autosetuprebase = always
+[diff]
+	tool = meld
+[mergetool]
+	keepBackup = yes
+[color]
+	ui = auto
+	[color "branch"]
+		current = green
+		local = yellow
+		remote = red
+	[color "diff"]
+		meta = yellow bold
+		frag = magenta bold
+		old = red bold
+		new = green bold
+	[color "status"]
+		added = green
+		changed = yellow
+		untracked = red
+[core]
+	pager = less -R
+[push]
+	default = simple
+[help]
+	autocorrect = 1
+[github]
+	user = ryansb
+[gitreview]
+	username = ryansb

@@ -6,5 +6,5 @@
   roles:
     - unbound
     - languages
-    - zsh
+    - shell
     - irc

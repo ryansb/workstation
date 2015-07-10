@@ -3,6 +3,7 @@
   tags:
     - packages
 
+### Install all the ZSH plugins & such
 - name: Determining username
   shell: whoami
   register: whoami
@@ -27,7 +28,7 @@
 - git: repo=https://github.com/zsh-users/zaw.git
        dest=~/.zsh/custom/zaw
 
-- copy: src={{ item }}
+- copy: src=zsh/{{ item }}
         dest=~/.zsh/.{{ item }}
   with_items:
     - zlogin
@@ -39,14 +40,14 @@
 - file: path=~/.zsh/.zhistory
 - file: path=~/.zsh/.zcompdump
 
-- copy: src={{ item }}
+- copy: src=zsh/{{ item }}
         dest=~/.zsh/custom/{{ item }}
   with_items:
     - _task
     - prompt
     - init.zsh
 
-- copy: src=functions dest=~/.zsh
+- copy: src=zsh/functions dest=~/.zsh
 
 - file: state=directory name=~/.zsh/.zcompcache
 
@@ -74,3 +75,27 @@
 
 - file: path=~/.bin
         state=directory
+
+### Other dotfiles
+- yum: name={{ item }} state=latest
+  with_items:
+  - git
+  - tig
+  - mercurial
+  - vim-enhanced
+  - screen
+  - tmux
+  tags:
+    - packages
+
+- copy: dest=~/.{{ item }}
+        src={{ item }}
+  with_items:
+  - gitconfig
+  - hgrc
+  - tmux.conf
+  - tmux.theme.conf
+  - screenrc
+
+# this file needs to exist, but it just for local customizations
+- file: path=~/.tmux.local

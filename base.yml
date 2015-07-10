@@ -5,4 +5,4 @@
     - vars/global.yml
   roles:
     - languages
-    - zsh
+    - shell
