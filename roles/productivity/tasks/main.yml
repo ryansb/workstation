@@ -1,0 +1,25 @@
+---
+- yum: name={{ item }} state=latest
+  sudo: true
+  with_items:
+  - python-gertty
+  - task
+  - vit
+  - msmtp
+  tags:
+  - packages
+
+- shell: creates=~/.local/bin/bugwarrior-pull
+         pipsi install bugwarrior
+
+- shell: creates=~/.local/bin/taskforge
+         pipsi install taskforge
+
+- template: src={{ item }}
+            dest=~/.{{ item }}
+  with_items:
+  - bugwarriorrc
+  - gertty.yaml
+  - mailrc
+  - msmtprc
+  - taskforgerc

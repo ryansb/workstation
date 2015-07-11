@@ -1,0 +1,17 @@
+logging:
+  level: DEBUG
+  file: ''
+
+plugins:
+  - name: shortener
+    entrypoint: taskforge.plugins.shorten:Shortener
+    module: taskforge
+    weight: 20
+    enabled: true
+    options:
+      max_length: 24
+  - name: bugwarrior
+    entrypoint: taskforge.plugins.bugwarrior:Bugwarrior
+    module: taskforge
+    weight: 10
+    enabled: true
