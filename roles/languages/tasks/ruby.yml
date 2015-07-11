@@ -1,0 +1,20 @@
+---
+- yum: name={{ item }} state=latest
+  sudo: true
+  with_items:
+  - doxygen
+  tags:
+  - packages
+
+- git: repo=https://github.com/sstephenson/rbenv.git
+       dest=~/.rbenv
+       version={{ rbenv_version }}
+
+- git: repo=https://github.com/sstephenson/ruby-build.git
+       dest=~/.rbenv/plugins/ruby-build
+       version={{ rbenv_build_version }}
+
+- name: install needed ruby versions
+  shell: creates=~/.rbenv/versions/{{ item }}
+         rbenv install {{ item }}
+  with_items: "{{ ruby_installs }}"

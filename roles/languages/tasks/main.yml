@@ -1,5 +1,7 @@
 ---
-# tasks file for languages
+- include: python.yml
+- include: ruby.yml
+
 - name: clone golang
   git: repo=https://go.googlesource.com/go
        version={{ go_version }}
@@ -31,61 +33,3 @@
   tags:
     - packages
 
-- yum: name={{ item }} state=latest
-  sudo: true
-  with_items:
-  - blas-devel
-  - libxml2-devel
-  - libxslt-devel
-  - libyaml-devel
-  - python-setuptools
-  - readline-devel
-  - sqlite-devel
-  tags:
-  - packages
-
-- shell: creates=/bin/pip easy_install pip
-  tags:
-    - packages
-
-- pip: name={{ item }} state=latest
-  sudo: true
-  with_items:
-  - wheel
-  - pip
-  - pipsi
-  tags:
-  - packages
-
-- git: repo=https://github.com/yyuu/pyenv.git
-       dest=~/.pyenv
-       version={{ pyenv_version }}
-
-- git: repo=https://github.com/yyuu/pyenv-virtualenv.git
-       dest=~/.pyenv/plugins/pyenv-virtualenv
-       version={{ pyenv_venv_version }}
-
-- name: install needed python versions
-  shell: creates=~/.pyenv/versions/{{ item }}
-         pyenv install {{ item }}
-  with_items: "{{ python_installs }}"
-
-- yum: name={{ item }} state=latest
-  sudo: true
-  with_items:
-  - doxygen
-  tags:
-  - packages
-
-- git: repo=https://github.com/sstephenson/rbenv.git
-       dest=~/.rbenv
-       version={{ rbenv_version }}
-
-- git: repo=https://github.com/sstephenson/ruby-build.git
-       dest=~/.rbenv/plugins/ruby-build
-       version={{ rbenv_build_version }}
-
-- name: install needed ruby versions
-  shell: creates=~/.rbenv/versions/{{ item }}
-         rbenv install {{ item }}
-  with_items: "{{ ruby_installs }}"
