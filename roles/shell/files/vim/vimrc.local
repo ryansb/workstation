@@ -1,0 +1,172 @@
+colorscheme typofree
+
+"let jj get you out of insert mode
+inoremap jj <ESC>
+
+nnoremap ; :
+
+" Map ; to : for great pythonic justice
+autocmd FileType python inoremap ; :
+autocmd FileType python inoremap : ;
+
+let g:indent_guides_enable_on_vim_startup = 0
+
+" reflow paragraph with Q in normal and visual mode
+nnoremap Q gqap
+vnoremap Q gq
+
+" Let Y yank to end of line like C and D
+nnoremap Y y$
+
+set scrolloff=5 "Keep the cursor at least 5 lines from the top and bottom
+set scrolljump=0 "Keep the cursor at least 5 lines from the top and bottom
+
+set listchars=tab:>-,trail:-,eol:$,nbsp:%
+
+"w!! writes the file using sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" Word swapping
+nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o><c-l>
+
+" Character swapping
+nmap <silent> gc xph
+
+" create a new tab
+map :tc :tabnew %<cr>
+" close a tab
+map :td :tabclose<cr>
+
+" Bindings for code folding
+nnoremap zz zO
+nnoremap Zz zM
+nnoremap zZ zR
+
+"Custom filetypes for libraries
+au BufNewFile,BufRead *.tac set filetype=python
+au BufNewFile,BufRead *.jinja set ft=jinja ts=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.mak,*.mako set ft=mako ts=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.handlebars set ts=2 shiftwidth=2 expandtab
+
+au BufNewFile,BufRead *.md set textwidth=79 wrap
+
+"When writing a Latex file, automatically recompile it and then show it in
+"evince
+autocmd BufWritePost *.tex :!pdflatex % && evince `echo % | sed 's/\.tex/\.pdf/'` &
+
+"""""XML stuff
+"au BufNewFile,BufRead *.less set filetype=less
+autocmd FileType xml,xslt,xhtml,html,less,css set ts=2 shiftwidth=2 expandtab
+map <Leader>x :%!tidy -utf8 -xml -i -q -w 0<CR>
+
+" Yank to system clipboard
+map <Leader>y "+y
+
+" Vimux Bindings
+" Prompt for a command to
+map <Leader>vc :VimuxPromptCommand<CR>
+" Run last vimux command
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Enter copy/scroll mode on the runner
+map <Leader>vi :VimuxInspectRunner<CR>
+" quit the vimux runner
+map <Leader>vq :VimuxCloseRunner<CR>
+" Kill the process in the vimux runner
+map <Leader>vk :VimuxInterruptRunner<CR>
+let VimuxUseNearestPane = 1
+
+" Vimux-pyutils
+map <Leader>i :call VimuxRunCommand("workon experimental \nipython \nclear")<CR>
+map <Leader>o ggVG<c-c>
+
+" Rainbow Parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesLoadSquare
+au VimEnter * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesLoadRound
+function! RPT()
+	cal rainbow_parentheses#load(0)
+	cal rainbow_parentheses#load(1)
+	cal rainbow_parentheses#load(2)
+	cal rainbow_parentheses#load(3)
+	endfunction
+nnoremap <Leader>p :call RPT()<CR>
+
+" `gf` jumps to the filename under the cursor.  Point at an import statement
+" and jump to it!
+python << EOF
+import os
+import sys
+import vim
+for p in sys.path:
+    if os.path.isdir(p):
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+EOF
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" Python Mode
+let g:pymode_run = 1
+let g:pymode_run_key = '<leader>r'
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pydoc = 'pydoc'
+let g:pymode_rope = 0
+let g:pymode_lint_checker = "pylint,pyflakes,pep8"
+let g:pymode_lint_onfly = 0
+let g:pymode_lint_jump = 0
+let g:pymode_options_fold = 0
+let g:pymode_breakpoint_key = '<leader>b'
+command PmOff let g:pymode_lint_checker = ""
+command PmOn let g:pymode_lint_checker = "pylint,pyflakes,pep8"
+
+set nospell
+set nocursorline
+""""""Die, Error bells
+set noerrorbells
+set mouse -=a
+set nobackup
+set noswapfile
+set noautowrite      " When I want to write to a file, I'll say so
+set noautowriteall
+set autoread         "Re-read open files when they are changed outside Vim
+
+" GoLang linting
+exe "set rtp+=" . globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+" autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+nnoremap <Leader>l :execute 'Lint' \| cwindow<CR>
+function! s:GoVet()
+    cexpr system("go vet " . shellescape(expand('%')))
+    copen
+endfunction
+command! GoVet :call s:GoVet()
+nnoremap <Leader>v :GoVet<CR>
+

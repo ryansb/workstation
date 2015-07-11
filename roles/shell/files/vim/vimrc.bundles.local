@@ -1,0 +1,68 @@
+let g:override_spf13_bundles="nopnopenope"
+
+let g:spf13_bundle_groups=['general', 'programming', 'go', 'python', 'neocomplcache', "misc"]
+"let g:spf13_bundle_groups=['general', 'programming', 'python', 'javascript', 'html', 'neocomplcache']
+
+Bundle 'Tuurlijk/typofree.vim'
+
+Bundle 'gcmt/wildfire.vim'
+
+"Bundle 'richsoni/vim-ecliptic'
+
+" General
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'spf13/vim-colors'
+    Bundle 'tpope/vim-surround'
+    Bundle 'spf13/vim-autoclose'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'matchit.zip'
+    Bundle 'kien/rainbow_parentheses.vim'
+    Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'godlygeek/csapprox'
+    Bundle 'jistr/vim-nerdtree-tabs'
+    Bundle 'flazz/vim-colorschemes'
+    Bundle 'vim-scripts/Gundo'
+    Bundle 'myusuf3/numbers.vim'
+
+" General Programming
+    Bundle 'scrooloose/syntastic'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'mattn/webapi-vim'
+    Bundle 'mattn/gist-vim'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'godlygeek/tabular'
+
+" Snippets & AutoComplete
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'honza/vim-snippets'
+
+" Python
+    Bundle 'klen/python-mode'
+    Bundle 'python.vim'
+    Bundle 'python_match.vim'
+    Bundle 'pythoncomplete'
+
+" Javascript
+    Bundle 'elzr/vim-json'
+    Bundle 'groenewege/vim-less'
+
+" HTML
+    Bundle 'amirh/HTML-AutoCloseTag'
+    Bundle 'hail2u/vim-css3-syntax'
+    "Bundle 'tpope/vim-haml'
+    Bundle 'ap/vim-css-color'
+    Bundle 'atourino/jinja.vim'
+
+" Go Lang
+    Bundle 'jnwhiteh/vim-golang'
+    Bundle 'spf13/vim-gocode'
+    " context-based completion
+    "Bundle 'Blackrush/vim-gocode'
+    Bundle 'dgryski/vim-godef'
+
+" Misc
+    Bundle 'chase/vim-ansible-yaml'
+    Bundle 'plasticboy/vim-markdown'
+    Bundle 'spf13/vim-preview'

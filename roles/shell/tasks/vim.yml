@@ -1,0 +1,22 @@
+---
+- name: download spf13-vim3 installer
+  get_url: url="https://raw.github.com/spf13/spf13-vim/3.0/bootstrap.sh"
+           dest=~/.bin/install-spf13-vim3
+           mode=0755
+
+- name: Run spf13-vim3 installer
+  command: creates=~/.vimrc
+           ~/.bin/install-spf13-vim3
+
+- copy: src=vim/{{ item }}
+        dest=~/.{{ item }}
+  with_items:
+  - vimrc.local
+  - vimrc.before.local
+  - vimrc.bundles.local
+
+- shell: "vim +Bundle{{ item }} +qall 2&>1 >/dev/null"
+  with_items:
+  - Clean
+  - Install
+  - Update

@@ -101,3 +101,5 @@
 
 # this file needs to exist, but it just for local customizations
 - file: path=~/.tmux.local
+
+- include: vim.yml
