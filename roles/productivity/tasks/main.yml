@@ -15,6 +15,11 @@
 - shell: creates=~/.local/bin/taskforge
          pipsi install taskforge
 
+- shell: creates=~/.local/bin/aws
+         pipsi install awscli
+
+- file: path=~/.aws state=directory
+
 - template: src={{ item }}
             dest=~/.{{ item }}
   with_items:
@@ -23,3 +28,4 @@
   - mailrc
   - msmtprc
   - taskforgerc
+  - aws/config
