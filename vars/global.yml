@@ -1,5 +1,5 @@
 ---
-homedir: /home/ryansb
+permit_root_login: false
 global_pkgs:
     - ack
     - bash-completion

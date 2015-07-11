@@ -1,0 +1,11 @@
+---
+- include: sshd.yml
+  sudo: true
+- include: firewalld.yml
+  sudo: true
+- include: fail2ban.yml
+
+# ipv6? Check it if you have it.
+- include: ipv6.yml
+  sudo: true
+  when: "ansible_default_ipv6 != {}"

@@ -6,8 +6,9 @@
   vars_files:
     - vars/global.yml
   roles:
+    - security
     - unbound
-    - languages
     - shell
-    - irc
+    - languages
     - productivity
+    - irc

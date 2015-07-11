@@ -15,7 +15,7 @@
   - vimrc.before.local
   - vimrc.bundles.local
 
-- shell: "vim +Bundle{{ item }} +qall 2&>1 >/dev/null"
+- shell: "vim +Bundle{{ item }} +qall 2>/dev/null >/dev/null"
   register: command_result
   failed_when: "'FATAL' in command_result.stderr"
   with_items:
