@@ -5,7 +5,12 @@
   - python-gertty
   - task
   - vit
-  - msmtp
+  tags:
+  - packages
+  when: ansible_distribution == 'Fedora'
+
+- yum: name=msmtp state=latest
+  sudo: true
   tags:
   - packages
 

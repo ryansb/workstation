@@ -6,18 +6,6 @@
 - include: zsh.yml
 
 ### Other dotfiles
-- yum: name={{ item }} state=latest
-  sudo: true
-  with_items:
-  - git
-  - tig
-  - mercurial
-  - vim-enhanced
-  - screen
-  - tmux
-  tags:
-    - packages
-
 - copy: dest=~/.{{ item }}
         src={{ item }}
   with_items:
@@ -29,3 +17,36 @@
 
 # this file needs to exist, but it just for local customizations
 - file: path=~/.tmux.local state=touch
+
+- yum: name={{ item }} state=latest
+  sudo: true
+  with_items:
+  - git
+  - tig
+  - mercurial
+  - vim-enhanced
+  - screen
+  - tmux
+  - ack
+  - bind-utils
+  - bzr
+  - ccze
+  - htop
+  - iotop
+  - ldns-utils
+  - mosh
+  - nc
+  - nload
+  - ntpdate
+  - openssh-clients
+  - pigz
+  - pv
+  - ranger
+  - rsync
+  - strace
+  - svn
+  - tar
+  - traceroute
+  - xz
+  tags:
+    - packages
