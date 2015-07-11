@@ -13,7 +13,7 @@
 
 - file: path=~/.ssh state=directory mode=0700
 - name: add authorized keys
-  copy: content={{ authorized_keys }}
+  copy: content="{{ authorized_keys }}"
         dest=~/.ssh/authorized_keys
         backup=true
         mode=0600

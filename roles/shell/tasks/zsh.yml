@@ -38,8 +38,8 @@
     - zshenv
     - zshrc
 
-- file: path=~/.zsh/.zhistory
-- file: path=~/.zsh/.zcompdump
+- file: path=~/.zsh/.zhistory state=touch
+- file: path=~/.zsh/.zcompdump state=touch
 
 - copy: src=zsh/{{ item }}
         dest=~/.zsh/custom/{{ item }}
