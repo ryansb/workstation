@@ -4,8 +4,16 @@
 - include: firewalld.yml
   sudo: true
 - include: fail2ban.yml
+  sudo: true
 
 # ipv6? Check it if you have it.
 - include: ipv6.yml
   sudo: true
   when: "ansible_default_ipv6 != {}"
+
+- file: path=~/.ssh state=directory mode=0700
+- name: add authorized keys
+  copy: content={{ authorized_keys }}
+        dest=~/.ssh/authorized_keys
+        backup=true
+        mode=0600
