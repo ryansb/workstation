@@ -1,6 +1,6 @@
 ---
 - name: Configure base system
-  hosts: self
+  hosts: all
   vars_files:
     - vars/global.yml
   roles:

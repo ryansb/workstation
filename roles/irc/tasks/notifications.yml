@@ -1,0 +1,9 @@
+---
+- get_url: url=https://raw.githubusercontent.com/m4v/inotify-daemon/stable/inotify-daemon
+           dest=~/.bin/inotify-daemon
+
+- file: path=~/.bin/inotify-daemon
+        mode=0755
+
+- copy: dest="~/.config/autostart/IRC Notifier.desktop"
+        src="IRC Notifier.desktop"
