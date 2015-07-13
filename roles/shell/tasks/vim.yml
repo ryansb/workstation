@@ -17,7 +17,7 @@
 
 - shell: "vim +Bundle{{ item }} +qall 2>/dev/null >/dev/null"
   register: command_result
-  failed_when: "'FATAL' in command_result.stderr"
+  ignore_errors: true
   with_items:
   - Clean
   - Install

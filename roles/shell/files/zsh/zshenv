@@ -54,11 +54,9 @@ export RBENV_ROOT="$HOME/.rbenv"
 path=(
   $HOME/.bin
   $HOME/.local/bin
-  /usr/local/{bin,sbin,heroku/bin}
+  /usr/local/{bin,sbin}
   $GOPATH/bin
   $GOROOT/bin
-  $HOME/.pyenv/bin
-  $HOME/.rbenv/bin
   $path
 )
 
@@ -90,6 +88,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-eval "$(which pyenv 2>/dev/null && pyenv init -)" 2>/dev/null
 eval "$(which pyenv 2>/dev/null && pyenv virtualenv-init -)" 2>/dev/null
-eval "$(which rbenv 2>/dev/null && rbenv init -)" 2>/dev/null

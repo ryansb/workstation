@@ -1,0 +1,16 @@
+#!/bin/bash -x
+set -euo pipefail
+
+cache_dir="${HOME}/.cache/duplicity/duply_$(basename ${CONFDIR})/"
+
+if [ ! -d $cache_dir ]
+then
+    exit 0
+fi
+
+cached=$(ls -al $cache_dir)
+
+if [[ $cached =~ "$(date +'%Y%m%d')" ]]
+then
+    exit 99
+fi

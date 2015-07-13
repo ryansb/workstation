@@ -1,2 +1,8 @@
-[self]
-localhost
+[gui]
+pt-boat ansible_ssh_host=pt-boat.local
+kilo ansible_ssh_host=kilo.local
+carolina ansible_ssh_host=carolina.local
+
+[work]
+kilo ansible_ssh_host=kilo.local
+carolina ansible_ssh_host=carolina.local

@@ -3,7 +3,9 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+
+# deduplicate path entries
+typeset -U path
 
 zstyle -t ':prezto:module:zcompile' enabled
 case $? in
@@ -16,10 +18,12 @@ case $? in
 			-M "$ZDOTDIR"/.zcompdump -- \
 			-R "$HOME"/.zshrc -- \
 			-R "$HOME"/.zlogin -- \
+			-R "$HOME"/.zprofile -- \
 			-R "$HOME"/.zpreztorc -- \
 			-R "$HOME"/.zshenv -- \
 			-R "$ZDOTDIR"/.zshrc -- \
 			-R "$ZDOTDIR"/.zlogin -- \
+			-R "$ZDOTDIR"/.zprofile -- \
 			-R "$ZDOTDIR"/.zpreztorc -- \
 			-R "$ZDOTDIR"/.zshenv --
 

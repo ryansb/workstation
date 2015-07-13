@@ -1,0 +1,8 @@
+{% for expr in item.excludes %}
+- {{ expr }}
+{% endfor %}
+{% for expr in item.includes %}
++ {{ expr }}
+{% endfor %}
++ {{ ansible_user_dir }}
+- **

@@ -6,9 +6,9 @@
 
 - yum: name=dnssec-trigger state=latest
   sudo: true
-  when: workstation_role == "gui"
   tags:
     - packages
+  when: '"gui" in group_names'
 
 - file: path=/etc/unbound/{{ item }}/ state=directory mode=0755 owner=root group=unbound
   with_items:
