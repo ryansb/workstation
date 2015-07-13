@@ -1,0 +1,23 @@
+# backup_sets is a list of duply backups for a given workstation
+# used by the "backup" role
+backup_sets:
+  - name: somedata
+    target: "duplicity target URL"
+    gpg_pw: somethingreallysecret
+    # volsize is measured in megabytes
+    volsize: 200
+    # time interval between full backups
+    full_every: 3M
+    # minute of the hour to run the backup cron job
+    on_minute: 0
+    # extra lines that will be literally inserted into the duply config
+    extra: |
+      MAX_FULL_BACKUPS=12
+      MAX_FULLS_WITH_INCRS=2
+    # a list of directories other than the user's homedir to back up
+    includes:
+      - /usr/local
+    # a list of file and directory expressions to *never* back up
+    # great for cache dirs, virtualenvs, and stuff that is otherwise backed up
+    excludes:
+      - /home/ryansb/.cache/
