@@ -1,0 +1,14 @@
+GPG_PW='{{ item.gpg_pw }}'
+TARGET='{{ item.target }}'
+
+SOURCE='/'
+
+MAX_FULLBKP_AGE={{ item.full_every }}
+DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than $MAX_FULLBKP_AGE "
+
+VOLSIZE={{ item.volsize }}
+DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE "
+
+DUPL_PARAMS="$DUPL_PARAMS --gpg-options '--compress-algo=zlib --compress-level=9 --cipher-algo=aes256 --digest-algo=sha512'"
+
+{{ item.extra }}

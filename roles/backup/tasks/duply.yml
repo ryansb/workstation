@@ -1,0 +1,26 @@
+---
+- yum: name=duply state=latest
+  sudo: true
+  tags:
+  - packages
+
+- file: path=~/.duply/{{ item.name }}
+        state=directory mode=0700
+  with_items: "{{ backup_sets }}"
+
+- template: src="conf" dest=~/.duply/{{ item.name }}/conf
+  with_items: "{{ backup_sets }}"
+
+- template: src="exclude" dest=~/.duply/{{ item.name }}/exclude
+  with_items: "{{ backup_sets }}"
+
+- copy: src="{{ item[0] }}" dest=~/.duply/{{ item[1].name }}/{{ item[0] }}
+  with_nested:
+  -
+    - pre
+    - post
+  - "{{ backup_sets }}"
+
+- cron: name={{ item.name }} minute={{ item.on_minute }}
+        job="/usr/bin/duply {{ item.name }} pre+bkp_post_cleanup --force"
+  with_items: "{{ backup_sets }}"

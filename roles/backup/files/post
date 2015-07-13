@@ -1,0 +1,7 @@
+#!/bin/bash -x
+set -euo pipefail
+
+if [[ CMD_PREV = bkp ]]
+then
+    /usr/local/bin/lmk -only-failure $CMD_ERR "Backup for $(basename ${CONFDIR}) failed!"
+fi
