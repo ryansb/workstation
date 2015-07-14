@@ -1,0 +1,38 @@
+---
+- yum: name={{ item }} state=latest
+  with_items:
+  - bind-utils
+  - bzr
+  - git
+  - libguestfs-tools
+  - mercurial
+  - nc
+  - ntpdate
+  - openssh-clients
+  - rsync
+  - screen
+  - strace
+  - svn
+  - tar
+  - tmux
+  - traceroute
+  - vim-enhanced
+  - xz
+  tags:
+    - packages
+- yum: name={{ item }} state=latest
+  with_items:
+  - ack
+  - ccze
+  - htop
+  - nload
+  - ranger
+  - ldns-utils
+  - iotop
+  - tig
+  - mosh
+  - pigz
+  - pv
+  when: ansible_distribution == 'Fedora'
+  tags:
+    - packages
