@@ -1,0 +1,5 @@
+---
+- include: libreswan.yml
+  when: vpn_libreswan
+- include: openvpn.yml
+  when: '"gui" in group_names'
