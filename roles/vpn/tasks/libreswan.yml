@@ -4,8 +4,15 @@
   tags:
   - packages
 
-- copy: dest=item[0] src=item[1] owner=root group=root
+- copy: dest=/etc/ipsec.d/redhat.secrets content=vpn_secret
+        owner=root group=root
   sudo: true
-  with_items_nested:
-  - [/etc/ipsec.d/redhat.secrets, /etc/ipsec.conf]
-  - [vpn_secret, ipsec.conf]
+  notify: restart ipsec
+
+- template: dest=/etc/ipsec.conf src=ipsec.conf
+            owner=root group=root
+  sudo: true
+  notify: restart ipsec
+
+- service: name=ipsec enabled=true
+  sudo: true

@@ -1,0 +1,4 @@
+---
+- name: restart ipsec
+  service: name=ipsec state=restarted
+  sudo: true
