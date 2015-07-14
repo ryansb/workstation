@@ -16,5 +16,5 @@
 
 - name: install needed ruby versions
   shell: creates=~/.rbenv/versions/{{ item }}
-         rbenv install {{ item }}
+         ~/.rbenv/bin/rbenv install {{ item }}
   with_items: "{{ ruby_installs }}"

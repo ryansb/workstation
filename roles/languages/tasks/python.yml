@@ -12,7 +12,9 @@
   tags:
   - packages
 
+# yeah, sudo easy_install is a bit gross, but it's ok in this case
 - shell: creates=/bin/pip easy_install pip
+  sudo: true
   tags:
     - packages
 
@@ -24,6 +26,8 @@
   - pipsi
   tags:
   - packages
+
+- file: state=directory name=~/.local
 
 - shell: creates=~/.local/bin/tox
          pipsi install tox
@@ -38,5 +42,5 @@
 
 - name: install needed python versions
   shell: creates=~/.pyenv/versions/{{ item }}
-         pyenv install {{ item }}
+         ~/.pyenv/bin/pyenv install {{ item }}
   with_items: "{{ python_installs }}"
