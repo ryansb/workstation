@@ -1,2 +1,2 @@
-let g:override_spf13_bundles="nopnopenope"
-let g:spf13_bundle_groups=['general', 'programming', 'go', 'python', 'neocomplcache', "misc"]
+""let g:override_spf13_bundles="nopnopenope"
+let g:spf13_bundle_groups=['python', 'haskell', 'neocomplcache']

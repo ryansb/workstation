@@ -1,8 +1,3 @@
-let g:override_spf13_bundles="nopnopenope"
-
-let g:spf13_bundle_groups=['general', 'programming', 'go', 'python', 'neocomplcache', "misc"]
-"let g:spf13_bundle_groups=['general', 'programming', 'python', 'javascript', 'html', 'neocomplcache']
-
 Bundle 'Tuurlijk/typofree.vim'
 
 Bundle 'gcmt/wildfire.vim'
@@ -33,17 +28,6 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'godlygeek/tabular'
 
-" Snippets & AutoComplete
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'honza/vim-snippets'
-
-" Python
-    Bundle 'klen/python-mode'
-    Bundle 'python.vim'
-    Bundle 'python_match.vim'
-    Bundle 'pythoncomplete'
-
 " Javascript
     Bundle 'elzr/vim-json'
     Bundle 'groenewege/vim-less'
@@ -65,4 +49,3 @@ Bundle 'gcmt/wildfire.vim'
 " Misc
     Bundle 'chase/vim-ansible-yaml'
     Bundle 'plasticboy/vim-markdown'
-    Bundle 'spf13/vim-preview'
