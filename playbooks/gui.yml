@@ -2,7 +2,7 @@
 - name: Configure GUI workstation
   hosts: gui
   vars_files:
-    - vars/global.yml
+    - ../vars/global.yml
   roles:
     - security
     - unbound

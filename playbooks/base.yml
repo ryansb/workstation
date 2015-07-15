@@ -2,7 +2,7 @@
 - name: Configure base system
   hosts: all
   vars_files:
-    - vars/global.yml
+    - ../vars/global.yml
   roles:
     - languages
     - shell

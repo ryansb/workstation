@@ -2,8 +2,8 @@
 - name: Configure carolina for RHOSP testing
   hosts: carolina
   vars_files:
-    - vars/global.yml
-    - vars/rhel.yml
+    - ../vars/global.yml
+    - ../vars/rhel.yml
   roles:
   #- rhel
   #- vpn
