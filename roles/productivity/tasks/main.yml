@@ -9,6 +9,9 @@
   - packages
   when: ansible_distribution == 'Fedora'
 
+- include: teensy.yml
+  when: ansible_distribution == 'Fedora' and teensy_dev == true
+
 - yum: name=msmtp state=latest
   sudo: true
   tags:
