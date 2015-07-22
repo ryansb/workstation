@@ -28,6 +28,22 @@
 
 - file: path=~/.aws state=directory
 
+- stat: path="{{ ansible_user_dir }}/.bin/hub"
+  register: gh_binary
+
+- get_url: url="{{ hub_release }}"
+           dest=/tmp/hub-linux-amd64-{{ hub_version }}.tar.gz
+  when: gh_binary.stat.exists == False
+
+- unarchive: src=/tmp/hub-linux-amd64-{{ hub_version }}.tar.gz
+             dest=/tmp
+  when: gh_binary.stat.exists == False
+
+- copy: src=/tmp/hub-linux-amd64-{{ hub_version }}/hub
+        dest="{{ ansible_user_dir }}/.bin/hub"
+        mode=0755
+  when: gh_binary.stat.exists == False
+
 - template: src={{ item }}
             dest=~/.{{ item }}
   with_items:
