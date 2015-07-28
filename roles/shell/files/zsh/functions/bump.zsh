@@ -1,0 +1,1 @@
+alias bump='mplayer -quiet -novideo -playlist <(curl http://mtgcast.com/topics/mtgcast-podcast-shows/active-podcast-shows/bump-in-the-night-with-dj-spruke/feed -s | grep mp3 | sed -e "s/.*\(http[^\"]*\).*/\1/")'
