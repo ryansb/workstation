@@ -1,0 +1,20 @@
+--
+- include: rhel.yml
+  sudo: true
+  when: ansible_distribution == 'RedHat'
+
+- include: epel.yml
+  sudo: true
+  when: '"epel" in use_repos'
+
+- include: rpmfusion.yml
+  sudo: true
+  when: '"rpmfusion" in use_repos'
+
+- include: chrome.yml
+  sudo: true
+  when: '"chrome" in use_repos'
+
+- include: dropbox.yml
+  sudo: true
+  when: '"dropbox" in use_repos and ansible_distribution == "Fedora"'

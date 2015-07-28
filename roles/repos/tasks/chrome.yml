@@ -1,0 +1,12 @@
+---
+- copy:
+    dest: /etc/yum.repos.d/google-chrome.repo
+    mode: 0644
+    owner: root
+    group: root
+    content: >
+      [google-chrome]
+      name=google-chrome
+      baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+      enabled=1
+      gpgcheck=1

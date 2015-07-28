@@ -1,0 +1,9 @@
+---
+use_epel: false
+use_repos:
+  -
+#  - epel
+#  - chrome
+#  - rpmfusion
+#  - rpmfusion-nonfree
+#  - dropbox

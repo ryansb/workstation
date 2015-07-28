@@ -1,0 +1,13 @@
+---
+- copy:
+    dest: /etc/yum.repos.d/dropbox.repo
+    mode: 0644
+    owner: root
+    group: root
+    content: >
+      [Dropbox]
+      name=Dropbox Repository
+      enabled=1
+      baseurl=http://linux.dropbox.com/fedora/$releasever/
+      gpgkey=https://linux.dropbox.com/fedora/rpm-public-key.asc
+      skip_if_unavailable=1

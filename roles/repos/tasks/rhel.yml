@@ -4,7 +4,3 @@
     password: "{{ rhn.password }}"
     state: present
     autosubscribe: true
-  sudo: true
-
-- include: epel.yml
-  when: use_epel
