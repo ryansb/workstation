@@ -9,6 +9,15 @@
   - packages
   when: ansible_distribution == 'Fedora'
 
+- yum: name={{ item }} state=absent
+  sudo: true
+  with_items:
+  - evolution-help
+  - evolution-ews
+  - evolution
+  tags:
+  - packages
+
 - include: teensy.yml
   when: ansible_distribution == 'Fedora' and teensy_dev == true
 
