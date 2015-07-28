@@ -9,6 +9,7 @@
   - python-setuptools
   - readline-devel
   - sqlite-devel
+  - bzip2-devel
   tags:
   - packages
 
