@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=~/.bin/inotify-daemon
+Exec=/home/ryansb/.bin/inotify-daemon
 X-GNOME-Autostart-enabled=true
 NoDisplay=false
 Hidden=false
