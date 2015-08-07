@@ -21,6 +21,8 @@
 - include: teensy.yml
   when: ansible_distribution == 'Fedora' and teensy_dev == true
 
+- include: github.yml
+
 - yum: name=msmtp state=latest
   sudo: true
   tags:
