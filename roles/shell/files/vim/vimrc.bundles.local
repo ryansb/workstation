@@ -39,7 +39,7 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'ap/vim-css-color'
     Bundle 'atourino/jinja.vim'
 
-" Go Lang
+" Golang
     Bundle 'jnwhiteh/vim-golang'
     Bundle 'spf13/vim-gocode'
     " context-based completion
@@ -49,3 +49,4 @@ Bundle 'gcmt/wildfire.vim'
 " Misc
     Bundle 'chase/vim-ansible-yaml'
     Bundle 'plasticboy/vim-markdown'
+    Bundle 'moskytw/nginx-contrib-vim'
