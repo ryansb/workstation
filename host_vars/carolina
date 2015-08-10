@@ -1,2 +1,5 @@
+---
 vpn_libreswan: true
 vpn_openvpn: false
+use_repos:
+  - epel
