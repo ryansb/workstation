@@ -4,8 +4,11 @@
   tags:
     - packages
 
-- yum: name=dnssec-trigger state=latest
+- yum: name="{{ item }}" state=latest
   sudo: true
+  with_items:
+  - dnssec-trigger
+  - dnssec-trigger-panel
   tags:
     - packages
   when: '"gui" in group_names'
