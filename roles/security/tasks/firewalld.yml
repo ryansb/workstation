@@ -16,3 +16,35 @@
 - service: name=firewalld
            enabled=true
            state=started
+
+- shell: firewall-cmd --get-zones
+  sudo: true
+  register: firewall_zones
+
+- shell: firewall-cmd --get-default-zone
+  sudo: true
+  register: firewall_default_zone
+
+- shell: firewall-cmd --permanent --new-zone={{ firewalld_zone }} && firewall-cmd --reload
+  sudo: true
+  when: '"{{ firewalld_zone }}" not in firewall_zones.stdout'
+
+- shell: firewall-cmd --set-default-zone={{ firewalld_zone }}
+  sudo: true
+  when: '"{{ firewalld_zone }}" not in firewall_default_zone.stdout'
+
+- firewalld:
+    zone: "{{ firewalld_zone }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+    service: "{{ item }}"
+  with_items: "{{ enabled_services }}"
+
+- firewalld:
+    zone: "{{ firewalld_zone }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+    port: "{{ item }}"
+  with_items: "{{ enabled_ports }}"

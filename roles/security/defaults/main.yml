@@ -1,0 +1,7 @@
+---
+firewalld_zone: workstation_zone
+enabled_services:
+  - ssh
+  - samba-client
+enabled_ports:
+  - 60000-61000/udp #mosh
