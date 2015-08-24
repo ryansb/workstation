@@ -1,5 +1,4 @@
 ---
-use_epel: false
 use_repos:
   -
 #  - epel
