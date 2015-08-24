@@ -1,0 +1,12 @@
+---
+- shell: yum localinstall -y http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+
+- shell: rhos-release 7-director
+
+- shell: yum clean all
+
+- yum: name=yum-utils state=latest
+
+- shell: yum-config-manager --enable rhelosp-rhel-7-server-opt
+
+- yum: name=instack-undercloud state=latest
