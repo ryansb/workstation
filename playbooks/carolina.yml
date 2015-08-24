@@ -5,8 +5,7 @@
     - ../vars/global.yml
     - ../vars/rhel.yml
   roles:
-  #- rhel
-  #- vpn
-  #- rhosp
+  - repos
+  - vpn
   - shell
-  - languages
+  - rhosp
