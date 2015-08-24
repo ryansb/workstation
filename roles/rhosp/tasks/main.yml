@@ -25,5 +25,5 @@
       export DIB_YUM_REPO_CONF="/etc/yum.repos.d/rhos-release-7-director-rhel-7.1.repo /etc/yum.repos.d/rhos-release-7-rhel-7.1.repo"
       export NODE_COUNT=5
       export UNDERCLOUD_NODE_CPU=4
-      export UNDERCLOUD_NODE_MEM=8000
+      export UNDERCLOUD_NODE_MEM=16384
   sudo: true
