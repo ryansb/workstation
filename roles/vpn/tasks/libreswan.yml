@@ -4,7 +4,7 @@
   tags:
   - packages
 
-- copy: dest=/etc/ipsec.d/redhat.secrets content=vpn_secret
+- copy: dest=/etc/ipsec.d/redhat.secrets content="{{ vpn_secret }}"
         owner=root group=root
   sudo: true
   notify: restart ipsec
