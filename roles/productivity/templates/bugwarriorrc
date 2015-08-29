@@ -25,7 +25,7 @@ annotation_links = True
 
 # log.level specifices the verbosity.  The default is DEBUG.
 # log.level can be one of DEBUG, INFO, WARNING, ERROR, CRITICAL, DISABLED
-#log.level = DEBUG
+log.level = INFO
 
 # If log.file is specified, output will be redirected there.  If it remains
 # unspecified, output is sent to sys.stderr
@@ -96,8 +96,11 @@ github.password = {{ github_password }}
 
 [rhbz]
 service = bugzilla
-default_priority = M
+default_priority = L
 add_tags = rhbz
 bugzilla.username = rybrown@redhat.com
 bugzilla.password = {{ rht_password }}
 bugzilla.base_uri = bugzilla.redhat.com
+bugzilla.ignore_cc = True
+bugzilla.include_needinfos = True
+bugzilla.open_statuses = NEW,ASSIGNED,NEEDINFO,ON_DEV,REOPENED,FAILS_QA
