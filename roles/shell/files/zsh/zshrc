@@ -60,6 +60,7 @@ alias rmignored="git status --ignored -z | sed -z -e '/^[^!]/d' -e 's/^!! //' | 
 alias gchild='git checkout $(git log --ancestry-path --format=%H ${commit}..master | tail -1)'
 
 ### aliases
+alias swapcaps='setxkbmap -option ctrl:nocaps'
 # systems stuff
 alias llog="sudo tail -f /var/log/messages -n46" # colorized live log
 alias lsec2="list_instances -H ID,Zone,T:Name,Key,Hostname,State"
