@@ -50,5 +50,5 @@
   - aws/config
 
 # msmtp wants its config to be secret
-- file: src=~/.msmtprc mode=0600
-- file: src=~/.bugwarriorrc mode=0600
+- file: path=~/.msmtprc mode=0600
+- file: path=~/.bugwarriorrc mode=0600
