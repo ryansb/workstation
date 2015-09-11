@@ -1,8 +1,19 @@
 ---
 use_repos:
   -
+# allowed options:
 #  - epel
 #  - chrome
 #  - rpmfusion
 #  - rpmfusion-nonfree
 #  - dropbox
+
+rhel_repos:
+  minimal: true
+  # these aren't used
+  # TODO: make a wrapper for subscription-manager repo enable/disable that has
+  # checks and won't register as "changed" every run.
+  enable:
+    - 'rhel-7-server-rpms'
+  disable:
+    - '*'
