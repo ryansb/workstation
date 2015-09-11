@@ -15,4 +15,9 @@
   notify: restart ipsec
 
 - service: name=ipsec enabled=true
-  sudo: true
+
+- lineinfile:
+      dest: /root/.bashrc
+      regexp: "^alias vpn"
+      line: "alias vpn="systemctl restart ipsec && sleep 5 && ipsec auto --up redhat"
+      backup: yes

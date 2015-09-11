@@ -7,4 +7,4 @@
 
 - name: Disable unwanted subscription repos
   shell: subscription-manager repos --disable='*' --enable='rhel-7-server-rpms'
-  when: "{{ rhel_repos.minimal }}"
+  when: rhel_repos.minimal
