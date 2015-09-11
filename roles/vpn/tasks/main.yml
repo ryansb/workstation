@@ -1,5 +1,6 @@
 ---
 - include: libreswan.yml
+  sudo: true
   when: vpn_libreswan
 - include: openvpn.yml
   when: vpn_openvpn
