@@ -36,3 +36,7 @@
   when: ansible_distribution == 'Fedora'
   tags:
     - packages
+- yum: name={{ item }} state=absent
+  with_items:
+  # get rid or the "not found, want to install XYZ package?" prompt
+  - PackageKit-command-not-found
