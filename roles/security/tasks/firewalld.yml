@@ -24,10 +24,10 @@
   register: firewall_default_zone
 
 - shell: firewall-cmd --permanent --new-zone={{ firewalld_zone }} && firewall-cmd --reload
-  when: '"{{ firewalld_zone }}" not in firewall_zones.stdout'
+  when: firewalld_zone not in firewall_zones.stdout
 
 - shell: firewall-cmd --set-default-zone={{ firewalld_zone }}
-  when: '"{{ firewalld_zone }}" not in firewall_default_zone.stdout'
+  when: firewalld_zone not in firewall_default_zone.stdout
 
 - firewalld:
     zone: "{{ firewalld_zone }}"
