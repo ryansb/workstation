@@ -12,6 +12,6 @@ python_installs:
  - 3.5.0
 
 rbenv_version: 'master'
-rbenv_build_version: 'v20150709'
+rbenv_build_version: 'v20150818'
 ruby_installs:
   - 2.2.2
