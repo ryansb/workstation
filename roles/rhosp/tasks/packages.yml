@@ -10,3 +10,4 @@
 - shell: yum-config-manager --enable rhelosp-rhel-7-server-opt
 
 - yum: name=instack-undercloud state=latest
+- yum: name=python-rdomanager-oscplugin state=latest
