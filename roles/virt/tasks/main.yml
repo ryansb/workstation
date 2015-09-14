@@ -1,0 +1,4 @@
+---
+# tasks file for virt
+- include: virt-networks.yml
+  sudo: true

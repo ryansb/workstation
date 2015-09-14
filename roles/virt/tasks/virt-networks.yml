@@ -1,0 +1,17 @@
+- virt_net: 
+    command: define
+    name: "{{ item.name }}"
+    xml: |
+      <network>
+        <name>{{ item.name }}</name>
+        <bridge name='{{ item.bridge }}' stp='on' delay='0'/>
+        <domain name='{{ item.domain }}'/>
+        <ip address='{{ item.net_addr }}' netmask='255.255.255.0'>
+        </ip>
+      </network>
+  with_items: "{{ virt_networks }}"
+- virt_net:
+    state: active
+    autostart: "yes"
+    name: "{{ item.name }}"
+  with_items: "{{ virt_networks }}"

@@ -1,0 +1,23 @@
+---
+# defaults file for virt
+virt_networks:
+- name: internal_api_net
+  domain: internal_api
+  net_addr: 172.16.1.1
+  bridge: virbr11
+- name: tenant_net
+  domain: tenant
+  net_addr: 172.16.2.1
+  bridge: virbr12
+- name: storage_net
+  domain: storage
+  net_addr: 172.16.3.1
+  bridge: virbr13
+- name: storage_mgmt_net
+  domain: storage_mgmt
+  net_addr: 172.16.4.1
+  bridge: virbr14
+- name: external_net
+  domain: external_net
+  net_addr: 172.16.5.1
+  bridge: virbr15
