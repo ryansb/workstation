@@ -1,4 +1,10 @@
 ---
 # tasks file for virt
+- yum: name="{{ item }}" state=latest
+  sudo: true
+  with_items:
+  - libvirt
+  - libvirt-daemon-kvm
+  - libvirt-python
 - include: virt-networks.yml
   sudo: true

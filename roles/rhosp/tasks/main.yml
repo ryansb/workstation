@@ -16,7 +16,6 @@
     group: stack
     mode: '0644'
     owner: stack
-    state: file
     url: "{{ rhel_guest }}"
   sudo: true
 
