@@ -8,6 +8,8 @@
 - include: zsh.yml
 
 ### Other dotfiles
+- file: path=~/.config/htop state=directory
+
 - copy: dest=~/.{{ item }}
         src={{ item }}
   with_items:
@@ -16,6 +18,7 @@
   - tmux.conf
   - tmux.theme.conf
   - screenrc
+  - config/htop/htoprc
 
 # this file needs to exist, but it just for local customizations
 - file: path=~/.tmux.local state=touch

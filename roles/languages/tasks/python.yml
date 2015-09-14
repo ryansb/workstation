@@ -3,6 +3,8 @@
   sudo: true
   with_items:
   - gcc
+  - patch
+  - openssl-devel
   - libxml2-devel
   - libxslt-devel
   - python-setuptools

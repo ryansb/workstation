@@ -38,7 +38,6 @@
          pipsi install awscli
 
 - file: path=~/.aws state=directory
-- file: path=~/.config/htop state=directory
 
 - template: src={{ item }}
             dest=~/.{{ item }}
@@ -49,7 +48,6 @@
   - msmtprc
   - taskforgerc
   - aws/config
-  - config/htop/htoprc
 
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600
