@@ -12,15 +12,19 @@
   sudo: true
 
 - get_url:
-    url: "http://download.devel.redhat.com/brewroot/packages/rhel-guest-image/7.1/20150224.0/images/rhel-guest-image-7.1-20150224.0.x86_64.qcow2"
-    dest: /home/stack/rhel-guest-image-7.1-20150224.0.x86_64.qcow2
+    dest: "/home/stack/{{ rhel_guest_image_name }}"
+    group: stack
+    mode: '0644'
+    owner: stack
+    state: file
+    url: "{{ rhel_guest }}"
   sudo: true
 
 - copy:
     dest: /home/stack/instack-vars
     content: |
       export NODE_DIST=rhel7
-      export IMAGE=http://download.devel.redhat.com/brewroot/packages/rhel-guest-image/7.1/20150224.0/images/rhel-guest-image-7.1-20150224.0.x86_64.qcow2
+      export IMAGE={{ rhel_guest }}
       export DIB_LOCAL_IMAGE=`basename $IMAGE`
       export DIB_YUM_REPO_CONF="/etc/yum.repos.d/rhos-release-7-director-rhel-7.1.repo /etc/yum.repos.d/rhos-release-7-rhel-7.1.repo"
       export NODE_COUNT=5
