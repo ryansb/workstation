@@ -6,7 +6,7 @@ pyenv_venv_version: 'v20150719'
 python_installs:
  - pypy3-2.4.0
  - pypy-2.5.1
- - 2.7.9
+ - 2.7.10
  - 3.3.6
  - 3.4.3
  - 3.5.0
