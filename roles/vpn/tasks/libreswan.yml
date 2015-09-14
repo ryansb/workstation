@@ -16,5 +16,8 @@
 - lineinfile:
       dest: /root/.bashrc
       regexp: "^alias vpn"
-      line: "alias vpn="systemctl restart ipsec && sleep 5 && ipsec auto --up redhat"
+      line: 'alias vpn="systemctl restart ipsec && sleep 5 && ipsec auto --up redhat"'
       backup: yes
+
+- name: ssh in and enable the VPN please, token up
+  shell: sleep 180
