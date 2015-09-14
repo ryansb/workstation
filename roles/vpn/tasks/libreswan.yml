@@ -19,5 +19,4 @@
       line: 'alias vpn="systemctl restart ipsec && sleep 5 && ipsec auto --up redhat"'
       backup: yes
 
-- name: ssh in and enable the VPN please, token up
-  shell: sleep 180
+- pause: seconds=180 prompt="waiting for user to run `vpn` as root"
