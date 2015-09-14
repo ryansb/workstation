@@ -1,4 +1,5 @@
-- virt_net: 
+- name: create networks for isolation tests
+  virt_net:
     command: define
     name: "{{ item.name }}"
     xml: |
@@ -10,7 +11,9 @@
         </ip>
       </network>
   with_items: "{{ virt_networks }}"
-- virt_net:
+
+- name: ensure networks are active
+  virt_net:
     state: active
     autostart: "yes"
     name: "{{ item.name }}"
