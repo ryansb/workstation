@@ -33,4 +33,3 @@
   tags:
     - packages
   when: ansible_distribution != 'RedHat'
-
