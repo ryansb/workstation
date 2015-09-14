@@ -2,6 +2,7 @@
 - yum: name={{ item }} state=latest
   sudo: true
   with_items:
+  - gcc
   - libxml2-devel
   - libxslt-devel
   - python-setuptools
