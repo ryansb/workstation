@@ -49,6 +49,8 @@
   - taskforgerc
   - aws/config
 
+- copy: src=rht_web_proxy.pac dest=/etc/redhat-corp-proxy.pac
+
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600
 - file: path=~/.bugwarriorrc mode=0600
