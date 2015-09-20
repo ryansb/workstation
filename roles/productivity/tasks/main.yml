@@ -50,6 +50,7 @@
   - aws/config
 
 - copy: src=rht_web_proxy.pac dest=/etc/redhat-corp-proxy.pac
+  sudo: true
 
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600
