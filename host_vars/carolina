@@ -1,5 +1,9 @@
 ---
 vpn_libreswan: true
 vpn_openvpn: false
-use_repos:
-  - epel
+#use_repos:
+#  - epel
+
+secure_fail2ban: false
+secure_firewalld: false
+secure_ipv6: false

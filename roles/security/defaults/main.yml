@@ -5,3 +5,8 @@ enabled_services:
   - samba-client
 enabled_ports:
   - 60000-61000/udp #mosh
+
+secure_fail2ban: true
+secure_firewalld: true
+secure_ipv6: true
+secure_ssh: true
