@@ -1,3 +1,4 @@
+- service: name=libvirtd state=running
 - name: create networks for isolation tests
   virt_net:
     command: define
