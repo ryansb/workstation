@@ -1,0 +1,20 @@
+---
+#- name: "run `openstack undercloud install`"
+#  sudo: true
+#  sudo_user: stack
+#  shell: openstack undercloud install
+
+- get_url:
+    dest: "/home/stack/{{ item.name }}"
+    group: stack
+    mode: '0644'
+    owner: stack
+    url: "{{ item.url }}"
+  with_items: "{{ undercloud_images }}"
+
+- unarchive:
+    src: "/home/stack/{{ item.name }}"
+    dest: "/home/stack/"
+    copy: false
+    creates: "/home/stack/{{ item.contains }}"
+  with_items: "{{ undercloud_images }}"
