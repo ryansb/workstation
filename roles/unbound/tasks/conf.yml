@@ -41,3 +41,10 @@
   when: override_rht_zone
   notify:
     - restart unbound
+
+- name: unbound | skip mdns for host lookup
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^hosts:'
+    line: "hosts:      files dns myhostname mymachines mdns4_minimal"
+    backup: yes
