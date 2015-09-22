@@ -21,11 +21,13 @@
         backup=true
         mode=0600
 
-- file: path=/root/.ssh state=directory mode=0700 user=root group=root
+- file: path=/root/.ssh state=directory mode=0700 owner=root group=root
+  sudo: true
 - name: add authorized keys
+  sudo: true
   copy: content="{{ authorized_keys }}"
         dest=/root/.ssh/authorized_keys
         backup=true
         mode=0600
-        user=root
+        owner=root
         group=root

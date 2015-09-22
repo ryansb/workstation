@@ -7,3 +7,4 @@ vpn_openvpn: false
 secure_fail2ban: false
 secure_firewalld: false
 secure_ipv6: false
+permit_root_login: true

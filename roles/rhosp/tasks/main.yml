@@ -30,3 +30,8 @@
       export UNDERCLOUD_NODE_CPU=4
       export UNDERCLOUD_NODE_MEM=16384
   sudo: true
+
+- include: undercloud.yml
+  sudo: true
+  sudo_user: stack
+  when: undercloud
