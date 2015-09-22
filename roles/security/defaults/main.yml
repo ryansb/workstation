@@ -6,6 +6,9 @@ enabled_services:
 enabled_ports:
   - 60000-61000/udp #mosh
 
+permit_root_login: false
+strict_sshd_ciphers: true
+
 secure_fail2ban: true
 secure_firewalld: true
 secure_ipv6: true
