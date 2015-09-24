@@ -24,15 +24,17 @@
   with_items:
   - ack
   - ccze
+  - dstat
   - htop
-  - nload
-  - ranger
-  - ldns-utils
+  - iftop
   - iotop
-  - tig
+  - ldns-utils
   - mosh
+  - nload
   - pigz
   - pv
+  - ranger
+  - tig
   ignore_errors: true
   tags:
     - packages
