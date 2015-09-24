@@ -21,6 +21,8 @@
   with_items:
   - blas-devel
   - libyaml-devel
+  tags:
+  - packages
 
 # yeah, sudo easy_install is a bit gross, but it's ok in this case
 - shell: creates=/bin/pip easy_install pip
