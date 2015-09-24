@@ -1,7 +1,7 @@
 ---
 - shell: yum localinstall -y http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
 
-- shell: rhos-release 7-director
+- shell: rhos-release -D 7-director
 
 - shell: yum clean all
 
