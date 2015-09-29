@@ -19,13 +19,22 @@
     url: "{{ rhel_guest }}"
   sudo: true
 
+- name: Add SSH keys for stack user in undercloud
+  sudo: true
+  sudo_user: stack
+  authorized_key: user=stack key=https://github.com/ryansb.keys
+
+- name: Add root SSH keys
+  authorized_key: user=root key=https://github.com/ryansb.keys
+  sudo: true
+
 - copy:
     dest: /home/stack/instack-vars
     content: |
       export NODE_DIST=rhel7
       export IMAGE={{ rhel_guest }}
       export DIB_LOCAL_IMAGE=`basename $IMAGE`
-      export DIB_YUM_REPO_CONF="/etc/yum.repos.d/rhos-release-7-director-rhel-7.1.repo /etc/yum.repos.d/rhos-release-7-rhel-7.1.repo"
+      export DIB_YUM_REPO_CONF="/etc/yum.repos.d/rhos-release-7.repo /etc/yum.repos.d/rhos-release-rhel-7.1.repo /etc/yum.repos.d/rhos-release-7-director.repo"
       export NODE_COUNT=5
       export UNDERCLOUD_NODE_CPU=4
       export UNDERCLOUD_NODE_MEM=16384
@@ -35,3 +44,9 @@
   sudo: true
   sudo_user: stack
   when: undercloud
+
+  # add a route directly to undercloud public network
+- shell: ip route add 192.0.2.0/24 dev virbr0
+  sudo: true
+  when: not undercloud
+  ignore_errors: true
