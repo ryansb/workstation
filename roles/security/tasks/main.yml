@@ -14,20 +14,10 @@
   sudo: true
   when: ansible_default_ipv6 != {} and secure_ipv6
 
-- file: path=~/.ssh state=directory mode=0700
-- name: add authorized keys
-  copy: content="{{ authorized_keys }}"
-        dest=~/.ssh/authorized_keys
-        backup=true
-        mode=0600
+- name: Add SSH keys from github
+  authorized_key: user=ryansb key=https://github.com/ryansb.keys
+  when: not undercloud
 
-- file: path=/root/.ssh state=directory mode=0700 owner=root group=root
+- name: Add root SSH keys
+  authorized_key: user=root key=https://github.com/ryansb.keys
   sudo: true
-- name: add authorized keys
-  sudo: true
-  copy: content="{{ authorized_keys }}"
-        dest=/root/.ssh/authorized_keys
-        backup=true
-        mode=0600
-        owner=root
-        group=root
