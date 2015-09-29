@@ -4,6 +4,10 @@ vpn_openvpn: false
 #use_repos:
 #  - epel
 
+python_installs:
+ - 2.7.9
+ - 2.7.10
+
 secure_fail2ban: false
 secure_firewalld: false
 secure_ipv6: false
