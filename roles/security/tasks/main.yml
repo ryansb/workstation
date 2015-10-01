@@ -16,7 +16,7 @@
 
 - name: Add SSH keys from github
   authorized_key: user=ryansb key=https://github.com/ryansb.keys
-  when: not undercloud
+  when: ansible_user_id == "ryansb"
 
 - name: Add root SSH keys
   authorized_key: user=root key=https://github.com/ryansb.keys
