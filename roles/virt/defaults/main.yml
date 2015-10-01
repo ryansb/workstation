@@ -21,3 +21,16 @@ virt_networks:
   domain: external_net
   net_addr: 172.16.5.1
   bridge: virbr15
+
+virt_disks:
+  -
+    - baremetalbrbm_0
+    - baremetalbrbm_1
+    - baremetalbrbm_2
+    - baremetalbrbm_3
+    - baremetalbrbm_4
+  -
+    - "sdb"
+    - "sdc"
+    - "sdd"
+    - "sde"
