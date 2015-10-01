@@ -57,6 +57,18 @@
   - restart sshd
   when: not permit_root_login
 
+- name: sshd | enable root login
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+      backup: yes
+  with_items:
+  - { regexp: '^PermitRootLogin', line: 'PermitRootLogin yes' }
+  notify:
+  - restart sshd
+  when: permit_root_login
+
 - name: sshd | enable the ssh port through firewalld
   firewalld:
       port: 22/tcp

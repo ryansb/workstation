@@ -1,5 +1,4 @@
 ---
-permit_root_login: false
 pkgs:
   gui:
     - cmus
