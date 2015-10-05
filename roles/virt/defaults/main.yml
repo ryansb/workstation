@@ -1,5 +1,6 @@
 ---
 # defaults file for virt
+post_create: false
 virt_networks:
 - name: internal_api_net
   domain: internal_api
@@ -22,15 +23,15 @@ virt_networks:
   net_addr: 172.16.5.1
   bridge: virbr15
 
+virt_machines:
+  - baremetalbrbm_0
+  - baremetalbrbm_1
+  - baremetalbrbm_2
+  - baremetalbrbm_3
+  - baremetalbrbm_4
+
 virt_disks:
-  -
-    - baremetalbrbm_0
-    - baremetalbrbm_1
-    - baremetalbrbm_2
-    - baremetalbrbm_3
-    - baremetalbrbm_4
-  -
-    - "sdb"
-    - "sdc"
-    - "sdd"
-    - "sde"
+  - sdb
+  - sdc
+  - sdd
+  - sde

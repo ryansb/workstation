@@ -8,3 +8,6 @@
   - libvirt-python
 - include: virt-networks.yml
   sudo: true
+- include: virt-disks.yml
+  when: post_create
+  sudo: true
