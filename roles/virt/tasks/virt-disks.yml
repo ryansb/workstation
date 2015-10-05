@@ -1,0 +1,28 @@
+---
+- name: make ceph disk configs
+  template:
+    src: blockdev.xml.j2
+    dest: /tmp/blockdev_{{ item[0] }}_{{ item[1] }}.xml
+  with_nested:
+    - "{{ virt_machines }}"
+    - "{{ virt_disks }}"
+
+- name: make ceph disk attachments
+  template:
+    src: blockdev_attach.xml.j2
+    dest: /tmp/blockdev_attach_{{ item[0] }}_{{ item[1] }}.xml
+  with_nested:
+    - "{{ virt_machines }}"
+    - "{{ virt_disks }}"
+
+- name: create disks
+  shell: virsh vol-create --pool default --file /tmp/blockdev_{{ item[0] }}_{{ item[1] }}.xml
+  with_nested:
+    - "{{ virt_machines }}"
+    - "{{ virt_disks }}"
+
+- name: attach disks
+  shell: virsh attach-device --config --domain {{ item[0] }} --file /tmp/blockdev_attach_{{ item[0] }}_{{ item[1] }}.xml
+  with_nested:
+    - "{{ virt_machines }}"
+    - "{{ virt_disks }}"

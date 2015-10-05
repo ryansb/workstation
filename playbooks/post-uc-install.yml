@@ -1,0 +1,10 @@
+---
+- name: postconfig on VMs created by instack-virt-setup
+  hosts: carolina
+  vars:
+    post_create: true
+  vars_files:
+    - ../vars/global.yml
+    - ../vars/rhel.yml
+  roles:
+  - virt
