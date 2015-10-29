@@ -21,6 +21,9 @@
 - include: teensy.yml
   when: ansible_distribution == 'Fedora' and teensy_dev == true
 
+- include: u2f.yml
+  when: ansible_distribution == 'Fedora' and utf_dev == true
+
 - include: github.yml
 
 - yum: name=msmtp state=latest
