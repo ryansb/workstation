@@ -44,6 +44,9 @@
 - shell: creates=~/.local/bin/tox
          pipsi install tox
 
+- shell: creates=~/.local/bin/harvey
+         pipsi install harvey
+
 - git: repo=https://github.com/yyuu/pyenv.git
        dest=~/.pyenv
        version={{ pyenv_version }}
