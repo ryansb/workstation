@@ -1,7 +1,7 @@
 ---
 go_version: 'release-branch.go1.4'
 
-pyenv_version: 'v20150913'
+pyenv_version: 'v20151124'
 pyenv_venv_version: 'v20150719'
 python_installs:
  - pypy3-2.4.0
