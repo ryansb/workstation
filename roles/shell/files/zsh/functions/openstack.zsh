@@ -6,8 +6,8 @@ function osclone {
     fi
     cmd="git fastclone https://review.openstack.org/p/"
     if [[ $1 =~ '/' ]] then
-        echo "${cmd}${1} ${@:2}"
+        ${cmd}${1} ${@:2}
     else
-        echo "${cmd}openstack/${1} ${@:2}"
+        ${cmd}openstack/${1} ${@:2}
     fi
 }
