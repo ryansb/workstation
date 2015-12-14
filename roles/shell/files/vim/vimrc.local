@@ -22,6 +22,7 @@ set scrolloff=5 "Keep the cursor at least 5 lines from the top and bottom
 set scrolljump=0 "Keep the cursor at least 5 lines from the top and bottom
 
 set listchars=tab:>-,trail:-,eol:$,nbsp:%
+au BufNewFile,BufRead *.md set listchars=nbsp:%,trail:-
 
 "w!! writes the file using sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -48,7 +49,8 @@ au BufNewFile,BufRead *.jinja set ft=jinja ts=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.mak,*.mako set ft=mako ts=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.handlebars set ts=2 shiftwidth=2 expandtab
 
-au BufNewFile,BufRead *.md set textwidth=79 wrap
+au BufNewFile,BufRead *.md set textwidth=79 wrap nonumber nofoldenable
+au BufNewFile,BufRead *.md NumbersToggle
 
 "When writing a Latex file, automatically recompile it and then show it in
 "evince
