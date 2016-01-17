@@ -8,8 +8,15 @@ python_installs:
  - 2.7.10
  - 3.5.1
 
-secure_fail2ban: false
-secure_firewalld: false
-secure_ipv6: false
-permit_root_login: true
-strict_sshd_ciphers: false
+secure_fail2ban: true
+secure_firewalld: true
+secure_ipv6: true
+permit_root_login: false
+strict_sshd_ciphers: true
+
+enabled_ports:
+  - 22/tcp
+  - 60000-61000/udp
+  - 6543/tcp
+  - 1313/tcp
+  - 8000-8080/tcp
