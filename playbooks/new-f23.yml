@@ -1,0 +1,8 @@
+---
+- name: Configure GUI workstation
+  hosts: gui
+  vars_files:
+    - ../vars/global.yml
+  tasks:
+    - shell: yum install -y python-dnf python-firewall
+      sudo: true
