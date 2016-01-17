@@ -1,5 +1,5 @@
 ---
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   sudo: true
   with_items:
   - doxygen

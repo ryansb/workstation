@@ -1,5 +1,5 @@
 ---
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   sudo: true
   with_items:
   - gcc
@@ -15,7 +15,7 @@
   - packages
 
 - name: optional stuff to make some libs faster
-  yum: name={{ item }} state=latest
+  dnf: name={{ item }} state=latest
   sudo: true
   ignore_errors: true
   with_items:

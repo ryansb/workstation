@@ -25,7 +25,7 @@
 #- name: Install rust
 #  shell: creates=~/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix=~/.rustlang
 
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   sudo: true
   with_items:
   - haskell-platform

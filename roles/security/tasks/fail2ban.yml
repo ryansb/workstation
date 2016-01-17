@@ -1,4 +1,4 @@
-- yum: name=fail2ban-systemd state=present
+- dnf: name=fail2ban-systemd state=present
   notify: restart fail2ban
   tags:
   - packages

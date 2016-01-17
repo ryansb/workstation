@@ -1,10 +1,8 @@
-- yum: name=firewalld
-       state=latest
+- dnf: name=firewalld state=latest
   tags:
   - packages
 
-- yum: name=python-firewall
-       state=latest
+- dnf: name=python-firewall state=latest
   tags:
   - packages
 

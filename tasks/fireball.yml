@@ -1,7 +1,7 @@
 ---
 # Credit to https://github.com/ralphbean/snackpack/blob/cb9952c062013d0088e359fac36bf4de89f1d8ba/playbooks/site.yml#L46-L69
 - name: Install package required for accelerate mode
-  yum: name={{ item }} state=installed
+  dnf: name={{ item }} state=installed
   with_items:
     - python-keyczar
     - openssl-devel

@@ -1,5 +1,5 @@
 ---
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   sudo: true
   with_items:
   - python-gertty
@@ -9,7 +9,7 @@
   - packages
   when: ansible_distribution == 'Fedora'
 
-- yum: name={{ item }} state=absent
+- dnf: name={{ item }} state=absent
   sudo: true
   with_items:
   - evolution-help
@@ -26,7 +26,7 @@
 
 - include: github.yml
 
-- yum: name=msmtp state=latest
+- dnf: name=msmtp state=latest
   sudo: true
   tags:
   - packages

@@ -5,7 +5,7 @@
   sudo: true
 
 - name: install teensy dev tools
-  yum: name={{ item }} state=latest
+  dnf: name={{ item }} state=latest
   sudo: true
   with_items:
   - arm-none-eabi-binutils-cs

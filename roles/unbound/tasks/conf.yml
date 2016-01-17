@@ -1,9 +1,9 @@
 ---
-- yum: name=unbound state=latest
+- dnf: name=unbound state=latest
   tags:
     - packages
 
-- yum: name="{{ item }}" state=latest
+- dnf: name="{{ item }}" state=latest
   with_items:
   - dnssec-trigger
   - dnssec-trigger-panel

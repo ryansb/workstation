@@ -2,7 +2,7 @@
 - include: notifications.yml
   when: '"gui" in group_names'
 
-- yum: name=weechat state=latest
+- dnf: name=weechat state=latest
   sudo: true
   tags:
   - packages

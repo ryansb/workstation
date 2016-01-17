@@ -1,5 +1,5 @@
 ---
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   with_items:
   - bind-utils
   - bzr
@@ -20,7 +20,7 @@
   - xz
   tags:
     - packages
-- yum: name={{ item }} state=latest
+- dnf: name={{ item }} state=latest
   with_items:
   - ack
   - ccze
@@ -38,7 +38,7 @@
   ignore_errors: true
   tags:
     - packages
-- yum: name={{ item }} state=absent
+- dnf: name={{ item }} state=absent
   with_items:
   # get rid or the "not found, want to install XYZ package?" prompt
   - PackageKit-command-not-found
