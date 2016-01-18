@@ -1,5 +1,5 @@
 ---
-go_version: 'release-branch.go1.4'
+go_version: 'go1.5.2'
 
 pyenv_version: 'v20151222'
 pyenv_venv_version: 'v20151229'
