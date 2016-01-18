@@ -9,6 +9,8 @@
 
 ### Other dotfiles
 - file: path=~/.config/htop state=directory
+- file: path=~/.config/htop state=directory
+  sudo: true
 
 - copy: dest=~/.{{ item }}
         src={{ item }}
@@ -17,6 +19,13 @@
   - hgrc
   - tmux.conf
   - tmux.theme.conf
+  - screenrc
+  - config/htop/htoprc
+
+- copy: dest=~/.{{ item }}
+        src={{ item }}
+  sudo: true
+  with_items:
   - screenrc
   - config/htop/htoprc
 
