@@ -5,5 +5,7 @@
 - file: path=~/.bin/inotify-daemon
         mode=0755
 
+- file: path="~/.config/autostart"
+        state=directory
 - copy: dest="~/.config/autostart/IRC Notifier.desktop"
         src="IRC Notifier.desktop"
