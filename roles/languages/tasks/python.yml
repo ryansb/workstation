@@ -8,6 +8,7 @@
   - libxml2-devel
   - libxslt-devel
   - python-setuptools
+  - python-devel
   - readline-devel
   - sqlite-devel
   - bzip2-devel
