@@ -5,6 +5,8 @@
   - python-gertty
   - task
   - vit
+  - libcurl-devel
+  - redhat-rpm-config
   tags:
   - packages
   when: ansible_distribution == 'Fedora'
