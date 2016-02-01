@@ -41,13 +41,10 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'atourino/jinja.vim'
 
 " Golang
-    Bundle 'jnwhiteh/vim-golang'
-    Bundle 'spf13/vim-gocode'
-    " context-based completion
-    "Bundle 'Blackrush/vim-gocode'
-    Bundle 'dgryski/vim-godef'
+    Bundle 'fatih/vim-go'
+    Bundle 'garyburd/go-explorer'
 
 " Misc
-    Bundle 'chase/vim-ansible-yaml'
+    Bundle 'pearofducks/ansible-vim'
     Bundle 'plasticboy/vim-markdown'
     Bundle 'moskytw/nginx-contrib-vim'
