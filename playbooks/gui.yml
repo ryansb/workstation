@@ -6,6 +6,7 @@
   roles:
     - security
     - unbound
+    - repos
     - shell
     - languages
     - productivity

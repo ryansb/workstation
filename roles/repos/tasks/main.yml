@@ -18,3 +18,6 @@
 - include: dropbox.yml
   sudo: true
   when: '"dropbox" in use_repos and ansible_distribution == "Fedora"'
+
+- shell: "dnf copr enable -y {{ item }}"
+  with_items: "{{ use_coprs }}"
