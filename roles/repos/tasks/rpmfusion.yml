@@ -9,7 +9,7 @@
     url: "http://download1.rpmfusion.org/free/el/updates/{{ ansible_distribution_version|int }}/i386/rpmfusion-free-release-{{ ansible_distribution_version|int }}-1.noarch.rpm"
   when: ansible_distribution != 'Fedora' and ansible_os_family == 'RedHat'
 
-- dnf: name=/tmp/rpmfusion-free.rpm state=installed
+- dnf: name=/tmp/rpmfusion-free.noarch.rpm state=installed
 
 - get_url:
     dest: /tmp/rpmfusion-nonfree.noarch.rpm
@@ -21,5 +21,5 @@
     url: "http://download1.rpmfusion.org/nonfree/el/updates/{{ ansible_distribution_version|int }}/i386/rpmfusion-nonfree-release-{{ ansible_distribution_version|int }}-1.noarch.rpm"
   when: "'rpmfusion-nonfree' in use_repos and ansible_distribution != 'Fedora' and ansible_os_family == 'RedHat'"
 
-- dnf: name=/tmp/rpmfusion-nonfree.rpm state=installed
+- dnf: name=/tmp/rpmfusion-nonfree.noarch.rpm state=installed
   when: "'rpmfusion-nonfree' in use_repos"

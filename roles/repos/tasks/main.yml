@@ -5,7 +5,7 @@
 
 - include: epel.yml
   sudo: true
-  when: '"epel" in use_repos'
+  when: "'epel' in use_repos and ansible_distribution != 'Fedora' and ansible_os_family == 'RedHat'"
 
 - include: rpmfusion.yml
   sudo: true
