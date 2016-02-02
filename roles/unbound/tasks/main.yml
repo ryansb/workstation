@@ -1,3 +1,20 @@
 ---
+- dnf: name=unbound state=latest
+  sudo: true
+  tags:
+    - packages
+
+- dnf: name="{{ item }}" state=latest
+  sudo: true
+  with_items:
+  - dnssec-trigger
+  - dnssec-trigger-panel
+  tags:
+    - packages
+  when: '"gui" in group_names'
+
+- shell: creates=/etc/unbound/unbound_control.key unbound-control-setup
+  sudo: true
+
 - include: conf.yml
   sudo: true

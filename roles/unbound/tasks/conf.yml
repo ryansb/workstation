@@ -1,16 +1,4 @@
 ---
-- dnf: name=unbound state=latest
-  tags:
-    - packages
-
-- dnf: name="{{ item }}" state=latest
-  with_items:
-  - dnssec-trigger
-  - dnssec-trigger-panel
-  tags:
-    - packages
-  when: '"gui" in group_names'
-
 - file: path=/etc/unbound/{{ item }}/ state=directory mode=0755 owner=root group=unbound
   with_items:
   - local.d
