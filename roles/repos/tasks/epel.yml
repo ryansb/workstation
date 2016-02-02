@@ -5,3 +5,4 @@
   when: ansible_os_family == "RedHat"
 
 - yum: name=/tmp/epel.rpm state=installed
+  when: ansible_os_family == "RedHat"
