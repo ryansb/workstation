@@ -1,8 +1,19 @@
 ---
 vpn_libreswan: false
 vpn_openvpn: true
-#use_repos:
-#  - epel
+override_rht_zone: true
+
+use_repos:
+  - epel
+  - chrome
+  - rpmfusion
+  - dropbox
+
+use_coprs:
+  - psss/edd
+  - jruzicka/rdopkg
+
+backup_sets: false
 
 python_installs:
  - 2.7.10
