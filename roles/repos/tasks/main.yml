@@ -21,3 +21,4 @@
 
 - shell: "dnf copr enable -y {{ item }}"
   with_items: "{{ use_coprs }}"
+  when: "{{ use_coprs }} is defined"
