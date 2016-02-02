@@ -13,8 +13,6 @@ use_coprs:
   - psss/edd
   - jruzicka/rdopkg
 
-backup_sets: false
-
 python_installs:
  - 2.7.10
  - 3.5.1
