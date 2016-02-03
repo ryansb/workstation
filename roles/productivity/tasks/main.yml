@@ -42,6 +42,9 @@
 - shell: creates=~/.local/bin/aws
          pipsi install awscli
 
+- shell: creates=~/.local/bin/awslogs
+         pipsi install awslogs
+
 - file: path=~/.aws state=directory
 
 - template: src={{ item }}
