@@ -12,9 +12,10 @@
   - arm-none-eabi-gcc
   - arm-none-eabi-gcc-cs
   - arm-none-eabi-gcc-cs-c++
-  - arm-none-eabi-gdb-devel
   - arm-none-eabi-newlib
   - gcc-arm-linux-gnu
   - gcc-c++-arm-linux-gnu
+  - dfu-util
+  - cmake
   tags:
   - packages

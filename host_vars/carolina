@@ -29,3 +29,5 @@ enabled_ports:
   - 6543/tcp
   - 1313/tcp
   - 8000-8080/tcp
+
+teensy_dev: true
