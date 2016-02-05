@@ -20,5 +20,6 @@
   when: '"dropbox" in use_repos and ansible_distribution == "Fedora"'
 
 - shell: "dnf copr enable -y {{ item }}"
+  sudo: true
   with_items: "{{ use_coprs }}"
-  when: "{{ use_coprs }} is defined"
+  when: "use_coprs is defined"
