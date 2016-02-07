@@ -4,7 +4,7 @@
     mode: 0644
     owner: root
     group: root
-    content: >
+    content: |
       [google-chrome]
       name=google-chrome
       baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
