@@ -39,6 +39,9 @@
 - shell: creates=~/.local/bin/taskforge
          pipsi install taskforge
 
+- shell: creates=~/.local/bin/git-review
+         pipsi install git-review
+
 - shell: creates=~/.local/bin/aws
          pipsi install awscli
 
