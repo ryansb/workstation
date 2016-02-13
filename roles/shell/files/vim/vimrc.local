@@ -50,7 +50,6 @@ au BufNewFile,BufRead *.mak,*.mako set ft=mako ts=2 shiftwidth=2 expandtab
 au BufNewFile,BufRead *.handlebars set ts=2 shiftwidth=2 expandtab
 
 au BufNewFile,BufRead *.md set textwidth=79 wrap nonumber nofoldenable
-au BufNewFile,BufRead *.md NumbersToggle
 
 "When writing a Latex file, automatically recompile it and then show it in
 "evince

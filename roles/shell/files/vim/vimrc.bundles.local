@@ -17,7 +17,6 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'godlygeek/csapprox'
     Bundle 'jistr/vim-nerdtree-tabs'
     Bundle 'vim-scripts/Gundo'
-    Bundle 'myusuf3/numbers.vim'
     " extra color schemes if needed
     "Bundle 'flazz/vim-colorschemes'
 
