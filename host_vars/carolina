@@ -20,7 +20,7 @@ python_installs:
 secure_fail2ban: true
 secure_firewalld: true
 secure_ipv6: true
-permit_root_login: false
+permit_root_login: true
 strict_sshd_ciphers: true
 
 enabled_ports:
