@@ -63,22 +63,8 @@ map <Leader>x :%!tidy -utf8 -xml -i -q -w 0<CR>
 " Yank to system clipboard
 map <Leader>y "+y
 
-" Vimux Bindings
-" Prompt for a command to
-map <Leader>vc :VimuxPromptCommand<CR>
-" Run last vimux command
-map <Leader>vl :VimuxRunLastCommand<CR>
-" Enter copy/scroll mode on the runner
-map <Leader>vi :VimuxInspectRunner<CR>
-" quit the vimux runner
-map <Leader>vq :VimuxCloseRunner<CR>
-" Kill the process in the vimux runner
-map <Leader>vk :VimuxInterruptRunner<CR>
-let VimuxUseNearestPane = 1
-
-" Vimux-pyutils
-map <Leader>i :call VimuxRunCommand("workon experimental \nipython \nclear")<CR>
-map <Leader>o ggVG<c-c>
+" engage live-save for editing blog posts w/ browser draft view
+map <Leader>s :autocmd TextChanged,TextChangedI <buffer> silent write<CR>
 
 " Rainbow Parentheses
 let g:rbpt_colorpairs = [
