@@ -30,6 +30,8 @@
   with_items:
   - haskell-platform
   - R
+  - autoconf
+  - make
   tags:
     - packages
   when: ansible_distribution != 'RedHat'
