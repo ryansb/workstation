@@ -5,10 +5,10 @@
     - ../vars/global.yml
     - ../vars/rhel.yml
   roles:
-  - repos
-  - security
-  - vpn
-  - shell
-  - languages
-  - virt
-  - rhosp
+    - security
+    - repos
+    - shell
+    - languages
+    - productivity
+    - irc
+    - backup
