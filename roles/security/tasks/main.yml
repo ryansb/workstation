@@ -1,10 +1,10 @@
 ---
-- include: sshd.yml
-  sudo: true
-  when: secure_ssh
 - include: firewalld.yml
   sudo: true
   when: secure_firewalld
+- include: sshd.yml
+  sudo: true
+  when: secure_ssh
 - include: fail2ban.yml
   sudo: true
   when: secure_fail2ban

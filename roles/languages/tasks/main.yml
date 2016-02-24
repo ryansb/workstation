@@ -26,6 +26,7 @@
 #  shell: creates=~/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix=~/.rustlang
 
 - dnf: name={{ item }} state=latest
+  name: install R and Haskell
   sudo: true
   with_items:
   - haskell-platform
