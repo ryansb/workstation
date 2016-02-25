@@ -43,6 +43,23 @@
     host: '{{ item }}'
     strict_host_key_checking: 'no'
   with_items:
-    - '*.lab.eng.bos.redhat.com'
     - 192.168.122.*
     - 192.168.1.*
+
+- name: sshconfig | ignore keys for AWS instances
+  ssh_config:
+    user: ryansb
+    host: '*.compute-1.amazonaws.com'
+    remote_user: ec2-user
+    strict_host_key_checking: 'no'
+
+- name: sshconfig | add vps nicknames
+  ssh_config:
+    user: ryansb
+    host: '{{ item }}'
+    hostname: 'iowa.ryansb.com'
+    remote_user: ryansb
+    strict_host_key_checking: 'yes'
+  with_items:
+    - iowa
+    - i
