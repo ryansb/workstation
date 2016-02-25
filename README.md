@@ -12,6 +12,11 @@ These playbooks set up (among other things)
 - pyenv, rbenv, haskell, and R environments
 - duply backups
 
+### Dependencies
+
+Library: https://github.com/gaqzi/ansible-ssh-config
+Install with: `ansible-galaxy install gaqzi.ssh-config -p library/`
+
 ### License
 
 This code is available under the MIT License, see LICENSE for details.
