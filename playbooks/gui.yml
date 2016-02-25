@@ -5,6 +5,7 @@
     - ../vars/global.yml
   roles:
     - security
+    - ssh
     - unbound
     - repos
     - shell
