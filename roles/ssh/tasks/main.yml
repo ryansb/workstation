@@ -1,0 +1,44 @@
+---
+- name: ssh | skip mdns for host lookup because it breaks all the **** time
+  sudo: true
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^hosts:'
+    line: "hosts:      files dns myhostname mymachines mdns4_minimal"
+    backup: yes
+
+- name: create ~/.ssh
+  file:
+    path: /home/ryansb/.ssh
+    state: directory
+    mode: 0700
+
+- name: sshconfig | add RH engineering gerrit
+  ssh_config:
+    user: ryansb
+    host: '{{ item }}'
+    identity_file: ~/.ssh/id_rsa
+    remote_user: rybrown
+  with_items:
+    - pkgs.devel.redhat.com
+    - code.engineering.redhat.com
+    - collab-shell.usersys.redhat.com
+
+- name: sshconfig | add RH labs
+  ssh_config:
+    user: ryansb
+    host: '{{ item }}'
+    identity_file: ~/.ssh/id_rsa
+    remote_user: root
+  with_items:
+    - '*.lab.eng.bos.redhat.com'
+
+- name: sshconfig | ignore host keys for trusted networks
+  ssh_config:
+    user: ryansb
+    host: '{{ item }}'
+    strict_host_key_checking: 'no'
+  with_items:
+    - '*.lab.eng.bos.redhat.com'
+    - 192.168.122.*
+    - 192.168.1.*
