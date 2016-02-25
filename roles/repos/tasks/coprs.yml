@@ -1,0 +1,2 @@
+- shell: "dnf copr enable -y {{ item }}"
+  with_items: "{{ use_coprs }}"
