@@ -31,8 +31,11 @@
     host: '{{ item }}'
     identity_file: ~/.ssh/id_rsa
     remote_user: root
+    strict_host_key_checking: 'no'
   with_items:
     - '*.lab.eng.bos.redhat.com'
+    - '*.lab.eng.brq.redhat.com'
+    - '*.lab.eng.rdu2.redhat.com'
 
 - name: sshconfig | ignore host keys for trusted networks
   ssh_config:
