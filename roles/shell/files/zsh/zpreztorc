@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'spectrum' \
   'terminal' \
-  'tmux' \
   'utility' \
   'prompt' \
   'custom'
@@ -107,16 +106,6 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # Set the tab title format.
 # zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
-
-#
-# Tmux
-#
-
-# Auto start a session when Zsh is launched in a local terminal.
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-
-# Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 #
 # Custom Modules
