@@ -42,6 +42,9 @@
 - shell: creates=~/.local/bin/git-review
          pipsi install git-review
 
+- shell: creates=~/.local/bin/git-sweep
+         pipsi install git-sweep
+
 - shell: creates=~/.local/bin/aws
          pipsi install awscli
 
