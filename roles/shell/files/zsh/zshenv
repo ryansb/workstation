@@ -89,3 +89,9 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 eval "$(which pyenv 2>/dev/null && pyenv virtualenv-init -)" 2>/dev/null
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/ryansb/.local/google-cloud-sdk/path.zsh.inc' 2>/dev/null
+
+# The next line enables shell command completion for gcloud.
+source '/home/ryansb/.local/google-cloud-sdk/completion.zsh.inc' 2>/dev/null
