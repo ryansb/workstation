@@ -21,10 +21,9 @@ Bundle 'gcmt/wildfire.vim'
     "Bundle 'flazz/vim-colorschemes'
 
 " General Programming
+    Bundle 'rhysd/committia.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'mattn/webapi-vim'
-    Bundle 'mattn/gist-vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'godlygeek/tabular'
 
