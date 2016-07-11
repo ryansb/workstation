@@ -31,6 +31,7 @@
 	rh = reset --hard
 	rh1 = reset HEAD^ --hard
 	rh2 = reset HEAD^^ --hard
+	since = !git log $(git merge-base --fork-point master)..HEAD
 [rebase]
 	stat = yes
 [branch]
