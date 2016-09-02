@@ -16,7 +16,7 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'godlygeek/csapprox'
     Bundle 'jistr/vim-nerdtree-tabs'
-    Bundle 'sjl/Gundo'
+    Bundle 'sjl/Gundo.vim'
     " extra color schemes if needed
     "Bundle 'flazz/vim-colorschemes'
 
