@@ -12,6 +12,8 @@
   - python-devel
   - readline-devel
   - sqlite-devel
+  - readline-devel
+  - zlib-devel
   - bzip2-devel
   tags:
   - packages
