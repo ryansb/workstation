@@ -8,10 +8,3 @@
     owner: root
     group: root
   notify: restart NetworkManager
-- name: Add RH internal CA certificate
-  copy:
-    content: "{{ redhat_ca }}"
-    dest: /etc/RedHatISCA.pem
-    owner: root
-    group: root
-    mode: '0644'

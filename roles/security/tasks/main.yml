@@ -22,14 +22,33 @@
   authorized_key: user=root key=https://github.com/ryansb.keys
   sudo: true
 
-- name: Trust internal CA
+- name: Trust internal ryansb.com CA
   copy:
     content: "{{ lookup('file', 'ryansb.com.pem') }}"
     dest: /etc/pki/ca-trust/source/anchors/ryansb.com.pem
     owner: root
     group: root
     mode: "0644"
-  sudo: true
+  become: true
+
+- name: Add RH internal CA certificate
+  copy:
+    content: "{{ redhat_ca }}"
+    dest: /etc/pki/ca-trust/source/anchors/redhat.com.pem
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+- name: Add RH internal CA certificate
+  copy:
+    content: "{{ redhat_ca }}"
+    dest: /etc/RedHatISCA.pem
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
 - name: load cert into trust store
   shell: update-ca-trust
   become: true

@@ -22,7 +22,7 @@
     dest: /home/ryansb/.todo
 
 - copy:
-    src: "{{ lookup('file', 'todo.config') }}"
+    src: todo.config
     dest: /home/ryansb/.todo/config
 
 - dnf: name={{ item }} state=absent
