@@ -29,9 +29,6 @@
 - shell: firewall-cmd --permanent --new-zone={{ firewalld_zone }} && firewall-cmd --reload
   when: firewalld_zone not in firewall_zones.stdout
 
-- shell: firewall-cmd --set-default-zone={{ firewalld_zone }}
-  when: firewalld_zone not in firewall_default_zone.stdout
-
 - firewalld:
     zone: "{{ firewalld_zone }}"
     permanent: yes
@@ -47,3 +44,6 @@
     state: enabled
     port: "{{ item }}"
   with_items: "{{ enabled_ports }}"
+
+- shell: firewall-cmd --set-default-zone={{ firewalld_zone }}
+  when: firewalld_zone not in firewall_default_zone.stdout
