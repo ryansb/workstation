@@ -1,1 +1,17 @@
 ---
+
+- name: copy openvpn config template
+  template:
+    src: networkmanager-ovpn.conf
+    dest: /etc/NetworkManager/system-connections/rhvpn
+    mode: '0600'
+    owner: root
+    group: root
+  notify: restart NetworkManager
+- name: Add RH internal CA certificate
+  copy:
+    content: "{{ redhat_ca }}"
+    dest: /etc/RedHatISCA.pem
+    owner: root
+    group: root
+    mode: '0644'

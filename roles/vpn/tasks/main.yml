@@ -1,6 +1,7 @@
 ---
 - include: libreswan.yml
-  sudo: true
-  when: vpn_libreswan
+  become: true
+  when: "{{ vpn_libreswan is defined and vpn_libreswan }}"
 - include: openvpn.yml
-  when: vpn_openvpn
+  become: true
+  when: "{{ vpn_openvpn is defined and vpn_openvpn }}"
