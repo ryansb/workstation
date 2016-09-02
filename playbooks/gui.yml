@@ -3,10 +3,12 @@
   hosts: gui
   vars_files:
     - ../vars/global.yml
+    - ../vars/secrets.yml
   roles:
     - security
     - ssh
     - unbound
+    - vpn
     - repos
     - shell
     - languages
