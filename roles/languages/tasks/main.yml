@@ -2,18 +2,6 @@
 - include: python.yml
 - include: ruby.yml
 
-- name: clone golang
-  git: repo=https://go.googlesource.com/go
-       version={{ go_version }}
-       dest=~/.golang
-       force=yes
-       depth=1
-
-- name: compile golang
-  shell: creates=~/.golang/bin/go
-         chdir=~/.golang/src
-         ~/.golang/src/make.bash
-
 - name: make R module dir
   file: path=~/.rlang/lib/ state=directory
 - copy: src=Rprofile dest=~/.Rprofile
@@ -26,13 +14,14 @@
 #  shell: creates=~/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix=~/.rustlang
 
 - dnf: name={{ item }} state=latest
-  name: install R and Haskell
+  name: install R, Go, and Haskell
   sudo: true
   with_items:
   - haskell-platform
   - R
   - autoconf
   - make
+  - golang
   tags:
     - packages
   when: ansible_distribution != 'RedHat'
