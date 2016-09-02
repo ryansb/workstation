@@ -11,55 +11,10 @@
   file:
     path: /home/ryansb/.ssh
     state: directory
-    mode: 0700
+    mode: '0700'
 
-- name: sshconfig | add RH engineering gerrit
-  ssh_config:
-    user: ryansb
-    host: '{{ item }}'
-    identity_file: ~/.ssh/id_rsa
-    remote_user: rybrown
-  with_items:
-    - pkgs.devel.redhat.com
-    - code.engineering.redhat.com
-    - collab-shell.usersys.redhat.com
-    - file.rdu.redhat.com
-
-- name: sshconfig | add RH labs
-  ssh_config:
-    user: ryansb
-    host: '{{ item }}'
-    identity_file: ~/.ssh/id_rsa
-    remote_user: root
-    strict_host_key_checking: 'no'
-  with_items:
-    - '*.lab.eng.bos.redhat.com'
-    - '*.lab.eng.brq.redhat.com'
-    - '*.lab.eng.rdu2.redhat.com'
-
-- name: sshconfig | ignore host keys for trusted networks
-  ssh_config:
-    user: ryansb
-    host: '{{ item }}'
-    strict_host_key_checking: 'no'
-  with_items:
-    - 192.168.122.*
-    - 192.168.1.*
-
-- name: sshconfig | ignore keys for AWS instances
-  ssh_config:
-    user: ryansb
-    host: '*.compute-1.amazonaws.com'
-    remote_user: ec2-user
-    strict_host_key_checking: 'no'
-
-- name: sshconfig | add vps nicknames
-  ssh_config:
-    user: ryansb
-    host: '{{ item }}'
-    hostname: 'iowa.ryansb.com'
-    remote_user: ryansb
-    strict_host_key_checking: 'yes'
-  with_items:
-    - iowa
-    - i
+- name: SSH config
+  template:
+    dest: /home/ryansb/.ssh/config
+    mode: '0600'
+    src: 'ssh-config.j2'

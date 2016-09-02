@@ -1,8 +1,8 @@
 [gui]
 pt-boat ansible_ssh_host=pt-boat.local
 kilo ansible_ssh_host=kilo.local
-carolina ansible_ssh_host=carolina.local
+hornet ansible_ssh_host=hornet.home
 
 [work]
 kilo ansible_ssh_host=kilo.local
-carolina ansible_ssh_host=carolina.local
+hornet ansible_ssh_host=hornet.home
