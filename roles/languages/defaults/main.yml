@@ -1,15 +1,11 @@
 ---
-go_version: 'go1.5.2'
-
-pyenv_version: 'v20151222'
-pyenv_venv_version: 'v20151229'
+pyenv_version: 'v20160726'
+pyenv_venv_version: 'v20160716'
 python_installs:
- - pypy3-2.4.0
- - pypy-2.5.1
  - 2.7.10
  - 3.3.6
  - 3.4.3
- - 3.5.0
+ - 3.5.2
 
 rbenv_version: 'master'
 rbenv_build_version: 'v20150818'
