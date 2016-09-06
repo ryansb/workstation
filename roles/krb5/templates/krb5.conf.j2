@@ -1,0 +1,34 @@
+[logging]
+ default = FILE:/var/log/krb5libs.log
+ kdc = FILE:/var/log/krb5kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+ default_realm = {{ krb5_domain }}
+ dns_lookup_realm = false
+ dns_lookup_kdc = false
+ ticket_lifetime = 7d
+ forwardable = yes
+ allow_weak_crypto = yes
+
+[realms]
+ REDHAT.COM = {
+{% for srv in krb5_controllers %}  kdc = {{ srv }}
+{% endfor %}
+  admin_server = {{ krb5_admin  }}
+  default_domain = {{ krb5_domain  }}
+ }
+
+[domain_realm]
+{% for domain, realm in krb5_realms.iteritems() %} {{ domain }} = {{ realm }}
+{% endfor %}
+
+[appdefaults]
+ pam = {
+   debug = false
+   ticket_lifetime = 36000
+   renew_lifetime = 36000
+   forwardable = true
+   krb4_convert = false
+ }
+

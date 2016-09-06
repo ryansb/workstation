@@ -1,0 +1,20 @@
+---
+# also remember to do the Firefox setup for Kerberos/GSSAPI auth:
+# https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/sso-config-firefox.html
+
+- name: Include RH Kerberos infrastructure information
+  include_vars: secrets.yml
+
+- dnf: name=krb5-workstation state=latest
+  become: true
+  tags:
+    - packages
+
+- template:
+    src: krb5.conf.j2
+    dest: /etc/krb5.conf
+    mode: '0644'
+    owner: root
+    group: root
+    backup: true
+  become: true
