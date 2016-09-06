@@ -9,6 +9,7 @@
     - ssh
     - unbound
     - vpn
+    - krb5
     - repos
     - shell
     - languages
