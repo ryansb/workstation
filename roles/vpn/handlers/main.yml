@@ -1,4 +1,7 @@
 ---
 - name: restart ipsec
   service: name=ipsec state=restarted
-  sudo: true
+  become: true
+- name: restart NetworkManager
+  service: name=NetworkManager state=restarted
+  become: true

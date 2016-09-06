@@ -40,15 +40,15 @@
     mode: '0644'
   become: true
 
-- name: Add RH internal CA certificate
+- name: Add RH VPN CA cert for use w/ OpenVPN
   copy:
-    content: "{{ redhat_ca }}"
-    dest: /etc/RedHatISCA.pem
+    content: "{{ vpn_ca }}"
+    dest: /etc/RedHatVPNCA.pem
     owner: root
     group: root
     mode: '0644'
   become: true
 
-- name: load cert into trust store
+- name: load certs into trust store
   shell: update-ca-trust
   become: true
