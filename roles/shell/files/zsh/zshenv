@@ -43,7 +43,11 @@ typeset -gU cdpath fpath mailpath path manpath
 #   $cdpath
 # )
 
-#export AWS_CREDENTIAL_FILE="/etc/boto.aws.cfg"
+if [[ -d $HOME/.golang ]]; then
+  export GOROOT="$HOME/.golang"
+else
+  export GOROOT="/usr/bin/golang"
+fi
 
 export GOROOT="$HOME/.golang"
 export GOPATH="$HOME/remotes"
