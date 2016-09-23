@@ -5,8 +5,11 @@
 - name: Include RH Kerberos infrastructure information
   include_vars: secrets.yml
 
-- dnf: name=krb5-workstation state=latest
+- dnf: name={{ item  }} state=latest
   become: true
+  with_items:
+    - krb5-workstation
+    - kstart
   tags:
     - packages
 
