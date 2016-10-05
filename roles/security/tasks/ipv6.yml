@@ -7,6 +7,5 @@
       state: present
       reload: yes
   with_items:
-    - "{{ ansible_default_ipv6.interface }}"
     - default
     - all
