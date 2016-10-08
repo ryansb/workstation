@@ -60,6 +60,7 @@ autocmd BufWritePost *.tex :!pdflatex % && evince `echo % | sed 's/\.tex/\.pdf/'
 "au BufNewFile,BufRead *.less set filetype=less
 autocmd FileType xml,xslt,xhtml,html,less,css set ts=2 shiftwidth=2 expandtab
 map <Leader>x :%!tidy -utf8 -xml -i -q -w 0<CR>
+autocmd FileType yaml setlocal ts=2 shiftwidth=2 expandtab shiftround sts=2 indentkeys-=<:>
 
 " Yank to system clipboard
 map <Leader>y "+y

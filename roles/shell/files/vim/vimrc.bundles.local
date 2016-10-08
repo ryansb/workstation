@@ -6,16 +6,10 @@ Bundle 'gcmt/wildfire.vim'
 
 " General
     Bundle 'scrooloose/nerdtree'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'spf13/vim-colors'
     Bundle 'tpope/vim-surround'
     Bundle 'Townk/vim-autoclose'
     Bundle 'kien/ctrlp.vim'
-    Bundle 'matchit.zip'
     Bundle 'kien/rainbow_parentheses.vim'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'godlygeek/csapprox'
-    Bundle 'jistr/vim-nerdtree-tabs'
     Bundle 'sjl/Gundo.vim'
     " extra color schemes if needed
     "Bundle 'flazz/vim-colorschemes'
@@ -24,17 +18,14 @@ Bundle 'gcmt/wildfire.vim'
     Bundle 'rhysd/committia.vim'
     Bundle 'scrooloose/syntastic'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'godlygeek/tabular'
+    Bundle 'tpope/vim-commentary'
 
 " Javascript
     Bundle 'elzr/vim-json'
     Bundle 'groenewege/vim-less'
 
 " HTML
-    Bundle 'amirh/HTML-AutoCloseTag'
     Bundle 'hail2u/vim-css3-syntax'
-    "Bundle 'tpope/vim-haml'
     Bundle 'ap/vim-css-color'
     Bundle 'atourino/jinja.vim'
 
@@ -44,6 +35,7 @@ Bundle 'gcmt/wildfire.vim'
 
 " Misc
     Bundle 'pearofducks/ansible-vim'
+    "Bundle 'erikzaadi/vim-ansible-yaml'
     Bundle 'plasticboy/vim-markdown'
     Bundle 'moskytw/nginx-contrib-vim'
     Bundle 'reedes/vim-wordy'
