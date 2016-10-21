@@ -31,8 +31,15 @@
   dnf: name={{ item }} state=latest
   with_items:
     - rhpkg
-    - brew
+    - brewkoji
     - fedpkg
     - koji
   tags:
     - packages
+
+# get current groups first to avoid overwriting memberships
+- command: groups
+  become_user: ryansb
+  changed_when: false
+  register: current_groups
+- user: name=ryansb group=ryansb groups='{{ current_groups.stdout.split(" ")[1:] | join(",") }},mock'
