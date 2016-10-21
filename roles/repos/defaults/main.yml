@@ -8,6 +8,8 @@ use_repos:
 #  - rpmfusion-nonfree
 #  - dropbox
 
+packaging_tools: false
+
 rhel_repos:
   minimal: true
   # these aren't used

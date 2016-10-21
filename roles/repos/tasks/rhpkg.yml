@@ -1,0 +1,38 @@
+---
+- name: Get rhpkg Fedora repository
+  copy:
+    dest: /etc/yum.repos.d/rhpkg.repo
+    mode: 0644
+    owner: root
+    group: root
+    # retrieved from http://download.devel.redhat.com/rel-eng/dist-git/fedora/rhpkg.repo 2016-10-21
+    content: |
+      [rhpkg]
+      name=rhpkg for Fedora $releasever
+      baseurl=http://download.lab.bos.redhat.com/rel-eng/dist-git/fedora/$releasever/
+      enabled=1
+      gpgcheck=0
+
+- name: Get brew/koji Fedora repository
+  copy:
+    dest: /etc/yum.repos.d/brew.repo
+    mode: 0644
+    owner: root
+    group: root
+    # retrieved from http://download.devel.redhat.com/rel-eng/brew/fedora/brew.repo 2016-10-21
+    content: |
+      [brew]
+      name=Brew Buildsystem for Fedora $releasever - $basearch
+      baseurl=http://download.devel.redhat.com/rel-eng/brew/fedora/$releasever/
+      enabled=1
+      gpgcheck=0
+
+- name: Install rhpkg/brew tools for Fedora and RHEL packaging
+  dnf: name={{ item }} state=latest
+  with_items:
+    - rhpkg
+    - brew
+    - fedpkg
+    - koji
+  tags:
+    - packages

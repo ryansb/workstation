@@ -1,24 +1,29 @@
 ---
 - include: rhel.yml
-  sudo: true
+  become: true
   when: ansible_distribution == 'RedHat'
 
 - include: epel.yml
-  sudo: true
-  when: "'epel' in use_repos and ansible_distribution != 'Fedora' and ansible_os_family == 'RedHat'"
+  become: true
+  # centos & rhel
+  when: '"epel" in use_repos and ansible_distribution != "Fedora" and ansible_os_family == "RedHat"'
 
 - include: rpmfusion.yml
-  sudo: true
+  become: true
   when: '"rpmfusion" in use_repos'
 
 - include: chrome.yml
-  sudo: true
+  become: true
   when: '"chrome" in use_repos'
 
 - include: dropbox.yml
-  sudo: true
+  become: true
   when: '"dropbox" in use_repos and ansible_distribution == "Fedora"'
 
 - include: coprs.yml
-  sudo: true
+  become: true
   when: 'use_coprs is defined and ansible_distribution == "Fedora"'
+
+- include: rhpkg.yml
+  become: true
+  when: 'packaging_tools is defined and packaging_tools and ansible_distribution == "Fedora"'
