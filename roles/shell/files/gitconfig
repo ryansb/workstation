@@ -64,12 +64,17 @@
 	autocorrect = 1
 [github]
 	user = ryansb
+[url "git@github.com:"]
+	# https://twitter.com/kisielk/status/793133952542191616
+	insteadOf = gh:
+[url "git@git.ryansb.com:"]
+	insteadOf = rsb:
 [gitreview]
 	username = ryansb
 # https://groups.google.com/forum/m/#!topic/binary-transparency/f-BI4o8HZW0
 [transfer]
-    fsckobjects = true
+	fsckobjects = true
 [fetch]
-    fsckobjects = true
+	fsckobjects = true
 [receive]
-    fsckObjects = true
+	fsckObjects = true
