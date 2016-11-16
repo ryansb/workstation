@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# Install NPM in the current virtualenv.
+#
+# Based on a post by Natim:
+# http://stackoverflow.com/questions/8986709/how-to-install-lessc-and-nodejs-in-a-python-virtualenv
+
+set -e
+
+#NODEJS_VER="v0.12.7"
+NODEJS_VER="v4.2.3"
+NODEJS="http://nodejs.org/dist/${NODEJS_VER}/node-${NODEJS_VER}-linux-x64.tar.gz"
+
+# Check dependencies
+for dep in gcc wget curl tar make; do
+    which $dep > /dev/null || (echo "ERROR: $dep not found"; exit 10)
+done
+
+# Must be run from virtual env
+if [ "$VIRTUAL_ENV" = "" ]; then
+    echo "ERROR: you must activate the virtualenv first!"
+    exit 1
+fi
+
+echo "1) Installing nodejs in current virtual env"
+echo
+
+cd "$VIRTUAL_ENV"
+
+# Create temp dir
+if [ ! -d "tmp" ]; then
+    mkdir tmp
+fi
+cd tmp || (echo "ERROR: entering tmp directory failed"; exit 4)
+
+echo -n "- Entered temp dir: "
+pwd
+
+# Download
+fname=`basename "$NODEJS"`
+if [ -f "$fname" ]; then
+    echo "- $fname already exists, not downloading"
+else
+    echo "- Downloading $NODEJS"
+    wget "$NODEJS" || (echo "ERROR: download failed"; exit 2)
+fi
+
+echo "- Extracting"
+tar -xvzf "$fname" || (echo "ERROR: tar failed"; exit 3)
+rm -rf $VIRTUAL_ENV/node || (echo "No existing node install")
+mv `basename "$fname" .tar.gz` ../node
+
+rm -f $VIRTUAL_ENV/bin/node $VIRTUAL_ENV/bin/npm || (echo "No existing node symlinks")
+ln -s $VIRTUAL_ENV/node/bin/node $VIRTUAL_ENV/bin/node
+ln -s $VIRTUAL_ENV/node/bin/npm $VIRTUAL_ENV/bin/npm
