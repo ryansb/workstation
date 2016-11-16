@@ -5,25 +5,11 @@
     mode: 0644
     owner: root
     group: root
-    # retrieved from http://download.devel.redhat.com/rel-eng/dist-git/fedora/rhpkg.repo 2016-10-21
+    # retrieved from https://mojo.redhat.com/docs/DOC-997854
     content: |
-      [rhpkg]
-      name=rhpkg for Fedora $releasever
-      baseurl=http://download.devel.redhat.com/rel-eng/dist-git/fedora/$releasever/
-      enabled=1
-      gpgcheck=0
-
-- name: Get brew/koji Fedora repository
-  copy:
-    dest: /etc/yum.repos.d/brew.repo
-    mode: 0644
-    owner: root
-    group: root
-    # retrieved from http://download.devel.redhat.com/rel-eng/brew/fedora/brew.repo 2016-10-21
-    content: |
-      [brew]
-      name=Brew Buildsystem for Fedora $releasever - $basearch
-      baseurl=http://download.devel.redhat.com/rel-eng/brew/fedora/$releasever/
+      [rcm-tools-fedora-rpms]
+      name=RCM Tools for Fedora $releasever (RPMs)
+      baseurl=http://download.devel.redhat.com/rel-eng/latest-RCMTOOLS-1-F-$releasever/compose/Everything/$basearch/os/
       enabled=1
       gpgcheck=0
 
