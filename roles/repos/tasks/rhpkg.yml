@@ -9,7 +9,7 @@
     content: |
       [rhpkg]
       name=rhpkg for Fedora $releasever
-      baseurl=http://download.lab.bos.redhat.com/rel-eng/dist-git/fedora/$releasever/
+      baseurl=http://download.devel.redhat.com/rel-eng/dist-git/fedora/$releasever/
       enabled=1
       gpgcheck=0
 

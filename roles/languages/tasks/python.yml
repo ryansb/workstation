@@ -63,3 +63,6 @@
   shell: creates=~/.pyenv/versions/{{ item }}
          ~/.pyenv/bin/pyenv install {{ item }}
   with_items: "{{ python_installs }}"
+
+- name: copy venv-node script to ~/.bin
+  copy: src=venv_node dest=~/.bin/venv_node mode='0755'
