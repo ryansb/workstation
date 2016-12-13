@@ -49,7 +49,6 @@ else
   export GOROOT="/usr/bin/golang"
 fi
 
-export GOROOT="$HOME/.golang"
 export GOPATH="$HOME/remotes"
 export PYENV_ROOT="$HOME/.pyenv"
 export RBENV_ROOT="$HOME/.rbenv"
