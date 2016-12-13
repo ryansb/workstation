@@ -57,9 +57,10 @@ export RBENV_ROOT="$HOME/.rbenv"
 path=(
   $HOME/.bin
   $HOME/.local/bin
-  /usr/local/{bin,sbin}
+  $HOME/.cabal/bin
   $GOPATH/bin
   $GOROOT/bin
+  /usr/local/{bin,sbin}
   $path
 )
 
