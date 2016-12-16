@@ -46,7 +46,7 @@ typeset -gU cdpath fpath mailpath path manpath
 if [[ -d $HOME/.golang ]]; then
   export GOROOT="$HOME/.golang"
 else
-  export GOROOT="/usr/bin/golang"
+  export GOROOT="/usr/lib/golang"
 fi
 
 export GOPATH="$HOME/remotes"
