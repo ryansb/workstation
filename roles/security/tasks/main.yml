@@ -48,6 +48,13 @@
     group: root
     mode: '0644'
   become: true
+- name: Add RH internal CA
+  copy:
+    content: "{{ redhat_ca_2016 }}"
+    dest: /etc/pki/tls/certs/2015-RH-IT-Root-CA.pem
+    owner: root
+    group: root
+    mode: '0644'
 
 - name: load certs into trust store
   shell: update-ca-trust
