@@ -3,14 +3,14 @@
         state=directory
 
 - include: packages.yml
-  sudo: true
+  become: true
 - include: vim.yml
 - include: zsh.yml
 
 ### Other dotfiles
 - file: path=~/.config/htop state=directory
 - file: path=~/.config/htop state=directory
-  sudo: true
+  become: true
 
 - copy: dest=~/.{{ item }}
         src={{ item }}
@@ -24,7 +24,7 @@
 
 - copy: dest=~/.{{ item }}
         src={{ item }}
-  sudo: true
+  become: true
   with_items:
   - screenrc
   - config/htop/htoprc

@@ -1,6 +1,6 @@
 ---
 - dnf: name={{ item }} state=latest
-  sudo: true
+  become: true
   with_items:
   - python-gertty
   - libcurl-devel
@@ -43,7 +43,7 @@
 - include: github.yml
 
 - dnf: name=msmtp state=latest
-  sudo: true
+  become: true
   tags:
   - packages
 
@@ -78,7 +78,7 @@
   - aws/config
 
 - copy: src=rht_web_proxy.pac dest=/etc/redhat-corp-proxy.pac
-  sudo: true
+  become: true
 
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600

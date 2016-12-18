@@ -2,4 +2,4 @@
 - name: Copy udev rule to allow u2f security key
   copy: dest=/etc/udev/rules.d/70-u2f.rules
         src=70-u2f.rules
-  sudo: true
+  become: true

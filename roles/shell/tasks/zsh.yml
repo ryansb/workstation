@@ -1,6 +1,6 @@
 ---
 - dnf: name=zsh state=latest
-  sudo: true
+  become: true
   tags:
     - packages
 
@@ -10,7 +10,7 @@
   register: whoami
 
 - name: Changing the default shell to zsh
-  sudo: True
+  become: true
   user: shell=/usr/bin/zsh
         user={{ whoami.stdout }}
 

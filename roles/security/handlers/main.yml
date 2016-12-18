@@ -1,12 +1,12 @@
 ---
 - name: restart fail2ban
-  sudo: true
+  become: true
   service: name=fail2ban state=restarted
 
 - name: restart sshd
-  sudo: true
+  become: true
   service: name=sshd state=restarted
 
 - name: restart firewalld
-  sudo: true
+  become: true
   service: name=firewalld state=restarted

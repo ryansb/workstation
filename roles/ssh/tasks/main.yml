@@ -1,6 +1,6 @@
 ---
 - name: ssh | skip mdns for host lookup because it breaks all the **** time
-  sudo: true
+  become: true
   lineinfile:
     dest: /etc/nsswitch.conf
     regexp: '^hosts:'

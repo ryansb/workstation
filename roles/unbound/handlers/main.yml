@@ -1,4 +1,4 @@
 ---
 - name: restart unbound
-  sudo: true
+  become: true
   action: service name=unbound state=restarted

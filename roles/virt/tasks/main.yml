@@ -1,13 +1,13 @@
 ---
 # tasks file for virt
 - yum: name="{{ item }}" state=latest
-  sudo: true
+  become: true
   with_items:
   - libvirt
   - libvirt-daemon-kvm
   - libvirt-python
 - include: virt-networks.yml
-  sudo: true
+  become: true
 - include: virt-disks.yml
   when: post_create
-  sudo: true
+  become: true

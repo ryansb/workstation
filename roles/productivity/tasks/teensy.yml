@@ -2,11 +2,11 @@
 - name: Copy udev rule to allow non-root users to dev for teensy
   copy: dest=/etc/udev/rules.d/49-teensy.rules
         src=49-teensy.rules
-  sudo: true
+  become: true
 
 - name: install teensy dev tools
   dnf: name={{ item }} state=latest
-  sudo: true
+  become: true
   with_items:
   - arm-none-eabi-binutils-cs
   - arm-none-eabi-gcc

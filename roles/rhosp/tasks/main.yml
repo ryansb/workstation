@@ -1,15 +1,15 @@
 ---
 # tasks file for rhosp
 - include: packages.yml
-  sudo: true
+  become: true
 
 - user: name=stack createhome=yes
         home=/home/stack
-  sudo: true
+  become: true
 
 - copy: content="stack ALL=(root) NOPASSWD:ALL"
         dest=/etc/sudoers.d/stack mode=0440
-  sudo: true
+  become: true
 
 - get_url:
     dest: "/home/stack/{{ rhel_guest_image_name }}"
@@ -17,16 +17,16 @@
     mode: '0644'
     owner: stack
     url: "{{ rhel_guest }}"
-  sudo: true
+  become: true
 
 - name: Add SSH keys for stack user in undercloud
-  sudo: true
-  sudo_user: stack
+  become: true
+  become_user: stack
   authorized_key: user=stack key=https://github.com/ryansb.keys
 
 - name: Add root SSH keys
   authorized_key: user=root key=https://github.com/ryansb.keys
-  sudo: true
+  become: true
 
 - copy:
     dest: /home/stack/instack-vars
@@ -38,15 +38,15 @@
       export NODE_COUNT=5
       export UNDERCLOUD_NODE_CPU=4
       export UNDERCLOUD_NODE_MEM=16384
-  sudo: true
+  become: true
 
 - include: undercloud.yml
-  sudo: true
-  sudo_user: stack
+  become: true
+  become_user: stack
   when: undercloud
 
   # add a route directly to undercloud public network
 - shell: ip route add 192.0.2.0/24 dev virbr0
-  sudo: true
+  become: true
   when: not undercloud
   ignore_errors: true

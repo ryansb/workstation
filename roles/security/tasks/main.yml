@@ -1,17 +1,17 @@
 ---
 - include: firewalld.yml
-  sudo: true
+  become: true
   when: secure_firewalld
 - include: sshd.yml
-  sudo: true
+  become: true
   when: secure_ssh
 - include: fail2ban.yml
-  sudo: true
+  become: true
   when: secure_fail2ban
 
 # ipv6? Check it if you have it.
 - include: ipv6.yml
-  sudo: true
+  become: true
   when: ansible_default_ipv6 != {} and secure_ipv6
 
 - name: Add SSH keys from github
@@ -20,7 +20,7 @@
 
 - name: Add root SSH keys
   authorized_key: user=root key=https://github.com/ryansb.keys
-  sudo: true
+  become: true
 
 - name: Trust internal ryansb.com CA
   copy:
