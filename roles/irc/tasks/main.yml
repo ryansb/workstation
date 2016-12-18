@@ -3,6 +3,6 @@
   when: '"gui" in group_names'
 
 - dnf: name=weechat state=latest
-  sudo: true
+  become: true
   tags:
   - packages

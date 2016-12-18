@@ -1,6 +1,6 @@
 ---
 - dnf: name=duply state=latest
-  sudo: true
+  become: true
   tags:
   - packages
 

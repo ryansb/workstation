@@ -1,6 +1,6 @@
 ---
 - dnf: name={{ item }} state=latest
-  sudo: true
+  become: true
   with_items:
   - gcc
   - patch
@@ -20,7 +20,7 @@
 
 - name: optional stuff to make some libs faster
   dnf: name={{ item }} state=latest
-  sudo: true
+  become: true
   ignore_errors: true
   with_items:
   - blas-devel
@@ -30,12 +30,12 @@
 
 # yeah, sudo easy_install is a bit gross, but it's ok in this case
 - shell: creates=/bin/pip easy_install pip
-  sudo: true
+  become: true
   tags:
     - packages
 
 - pip: name={{ item }} state=latest
-  sudo: true
+  become: true
   with_items:
   - wheel
   - pip

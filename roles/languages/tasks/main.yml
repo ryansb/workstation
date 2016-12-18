@@ -15,7 +15,7 @@
 
 - dnf: name={{ item }} state=latest
   name: install R, Go, and Haskell
-  sudo: true
+  become: true
   with_items:
   - haskell-platform
   - R
