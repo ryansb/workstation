@@ -5,4 +5,4 @@
     - ../vars/global.yml
   tasks:
     - shell: yum install -y python-dnf python-firewall
-      sudo: true
+      become: true

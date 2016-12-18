@@ -13,14 +13,14 @@
 
      - name: install dnf-python
        when: ansible_pkg_mgr == 'dnf'
-       sudo: true
+       become: true
        command: dnf install -y python-dnf
        register: dnf_install_python_result
        changed_when: '"Nothing to do" not in dnf_install_python_result.stdout'
 
      - name: install dnf packages needed by ansible
        when: ansible_pkg_mgr == 'dnf'
-       sudo: true
+       become: true
        dnf: name={{ item }} state=present
        with_items:
        - libsemanage-python
