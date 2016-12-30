@@ -5,5 +5,5 @@ function tmpenv {
 }
 
 function rmtmpenv {
-    rm -rf ~/.pyenv/versions/tmpenv-*
+    find ~/.pyenv/versions -name 'tmpenv-*' | xargs rm -rf
 }
