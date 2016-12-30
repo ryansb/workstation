@@ -1,6 +1,6 @@
 function td {
     if (( ${#argv} < 2 )) ; then
-        echo 'usage: do "datelike" task...' >&2
+        echo 'usage: td "datelike" task...' >&2
         echo 'Adds to your todo list, with a due date attached' >&2
         return 1
     fi
