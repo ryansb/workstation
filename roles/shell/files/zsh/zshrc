@@ -66,11 +66,11 @@ alias llog="sudo tail -f /var/log/messages -n46" # colorized live log
 alias lsec2="list_instances -H ID,Zone,T:Name,Key,Hostname,State"
 alias rsync="noglob rsync -hv --progress"
 alias fuck="pkill -9 -f"
-alias jq="/usr/local/bin/jq -C"
+alias jq="\jq -C"
 function jql {
-    /usr/local/bin/jq -C "${@}" | less
+    \jq -C "${@}" | less
 }
-alias jqn="/usr/local/bin/jq"
+alias jqn="\jq"
 
 alias shuffledir="mplayer -quiet -audiofile-cache 50000 -novideo -playlist <(find \$PWD -type f|sort -R)"
 alias musicfind="grep -R --include=\"*.txt\" "
