@@ -1,0 +1,13 @@
+---
+- homebrew:
+  with_items:
+  - git
+  - mercurial
+  - screen
+  - tmux
+  - xz
+  - ack
+  - htop
+  - mosh
+  - ranger
+  - zsh

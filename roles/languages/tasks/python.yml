@@ -17,6 +17,15 @@
   - bzip2-devel
   tags:
   - packages
+  when: ansible_distribution != 'MacOSX'
+
+- homebrew:
+  with_items:
+  - gcc
+  - patch
+  tags:
+  - packages
+  when: ansible_distribution == 'MacOSX'
 
 - name: optional stuff to make some libs faster
   dnf: name={{ item }} state=latest

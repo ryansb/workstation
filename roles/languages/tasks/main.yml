@@ -24,4 +24,4 @@
   - golang
   tags:
     - packages
-  when: ansible_distribution != 'RedHat'
+  when: ansible_distribution == 'Fedora'

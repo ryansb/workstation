@@ -3,6 +3,7 @@
   become: true
   tags:
     - packages
+  when: ansible_distribution != 'MacOSX'
 
 ### Install all the ZSH plugins & such
 - name: Determining username
@@ -13,6 +14,7 @@
   become: true
   user: shell=/usr/bin/zsh
         user={{ whoami.stdout }}
+  when: ansible_distribution != 'MacOSX'
 
 - file: state=directory
         name={{ item }}

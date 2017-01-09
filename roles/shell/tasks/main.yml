@@ -4,6 +4,12 @@
 
 - include: packages.yml
   become: true
+  when: ansible_distribution == 'Fedora'
+
+- include: mac_packages.yml
+  become: true
+  when: ansible_distribution == 'MacOSX'
+
 - include: vim.yml
 - include: zsh.yml
 

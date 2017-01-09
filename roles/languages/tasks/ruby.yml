@@ -5,6 +5,7 @@
   - doxygen
   tags:
   - packages
+  when: ansible_distribution != 'MacOSX'
 
 - git: repo=https://github.com/sstephenson/rbenv.git
        dest=~/.rbenv
