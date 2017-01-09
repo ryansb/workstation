@@ -1,12 +1,13 @@
 ---
-use_repos:
-  -
+use_repos: []
 # allowed options:
 #  - epel
 #  - chrome
 #  - rpmfusion
 #  - rpmfusion-nonfree
 #  - dropbox
+
+use_coprs: []
 
 packaging_tools: false
 

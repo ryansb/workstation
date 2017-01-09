@@ -1,8 +1,8 @@
-- dnf: name=firewalld state=latest
+- dnf: name=firewalld state=present
   tags:
   - packages
 
-- dnf: name=python-firewall state=latest
+- dnf: name=python-firewall state=present
   tags:
   - packages
 
