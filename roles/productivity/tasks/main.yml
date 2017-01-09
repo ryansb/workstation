@@ -2,7 +2,6 @@
 - dnf: name={{ item }} state=latest
   become: true
   with_items:
-  - python-gertty
   - libcurl-devel
   - redhat-rpm-config
   tags:
@@ -71,7 +70,6 @@
             dest=~/.{{ item }}
   with_items:
   - bugwarriorrc
-  - gertty.yaml
   - mailrc
   - msmtprc
   - taskforgerc
