@@ -1,0 +1,16 @@
+---
+- get_url:
+    url: "https://raw.githubusercontent.com/ginatrapani/todo.txt-cli/v2.10/todo.sh"
+    dest: /usr/local/bin/todo
+    mode: '0755'
+    owner: root
+    group: root
+  become: true
+
+- file:
+    state: directory
+    dest: /home/ryansb/.todo
+
+- copy:
+    src: todo.config
+    dest: /home/ryansb/.todo/config

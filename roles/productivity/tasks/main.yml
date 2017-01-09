@@ -8,22 +8,6 @@
   - packages
   when: ansible_distribution == 'Fedora'
 
-- get_url:
-    url: "https://raw.githubusercontent.com/ginatrapani/todo.txt-cli/v2.10/todo.sh"
-    dest: /usr/local/bin/todo
-    mode: '0755'
-    owner: root
-    group: root
-  become: true
-
-- file:
-    state: directory
-    dest: /home/ryansb/.todo
-
-- copy:
-    src: todo.config
-    dest: /home/ryansb/.todo/config
-
 - dnf: name={{ item }} state=absent
   become: true
   with_items:
@@ -40,6 +24,8 @@
   when: ansible_distribution == 'Fedora' and u2f_dev == true
 
 - include: github.yml
+
+- include: todo.yml
 
 - dnf: name=msmtp state=latest
   become: true
