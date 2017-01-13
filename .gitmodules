@@ -1,0 +1,3 @@
+[submodule "roles/minishift-up"]
+	path = roles/minishift-up
+	url = git@github.com:chouseknecht/minishift-up-role.git
