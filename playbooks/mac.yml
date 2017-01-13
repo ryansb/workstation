@@ -1,0 +1,11 @@
+---
+- name: Configure Mac mini workstation
+  vars:
+    ansible_ssh_pipelining: yes
+  hosts: gui
+  vars_files:
+    - ../vars/global.yml
+    - ../vars/secrets.yml
+  roles:
+    - shell
+    - languages
