@@ -118,8 +118,28 @@ import vim
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
+    bin_path = os.path.join(project_base_dir, 'bin')
+    base_path = project_base_dir
+
+    old_os_path = os.environ.get('PATH', '')
+    os.environ['PATH'] = bin_path + os.pathsep + old_os_path
+    base = os.path.dirname(project_base_dir)
+    if sys.platform == 'win32':
+        site_packages = os.path.join(base, 'Lib', 'site-packages')
+    else:
+        site_packages = os.path.join(base, 'lib', 'python%s' % sys.version[:3], 'site-packages')
+    prev_sys_path = list(sys.path)
+    import site
+    site.addsitedir(site_packages)
+    sys.real_prefix = sys.prefix
+    sys.prefix = base
+    # Move the added items to the front of the path:
+    new_sys_path = []
+    for item in list(sys.path):
+        if item not in prev_sys_path:
+            new_sys_path.append(item)
+            sys.path.remove(item)
+    sys.path[:0] = new_sys_path
 EOF
 
 " Python Mode
