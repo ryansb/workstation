@@ -24,3 +24,6 @@
 - cron: name={{ item.name }} minute={{ item.on_minute }}
         job="/usr/bin/duply {{ item.name }} pre+bkp_post_cleanup --force"
   with_items: "{{ backup_sets }}"
+
+- cron: name=lock_cleanup minute=0
+        job="find ~/.cache/duplicity/ -type f -name lockfile.lock -mmin +240 -delete"
