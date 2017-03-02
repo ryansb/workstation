@@ -2,6 +2,7 @@
 pt-boat ansible_ssh_host=pt-boat.local
 kilo ansible_ssh_host=kilo.local
 hornet ansible_ssh_host=hornet.home
+warspite ansible_ssh_host=warspite.home
 
 [work]
 kilo ansible_ssh_host=kilo.local
