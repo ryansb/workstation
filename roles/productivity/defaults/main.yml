@@ -1,5 +1,5 @@
 ---
 teensy_dev: false
 u2f_dev: false
-hub_version: '2.2.2'
+hub_version: '2.2.9'
 hub_release: 'https://github.com/github/hub/releases/download/v{{ hub_version }}/hub-linux-amd64-{{ hub_version }}.tgz'
