@@ -4,5 +4,5 @@
   vars_files:
     - ../vars/global.yml
   tasks:
-    - shell: yum install -y python-dnf python-firewall
+    - shell: yum install -y python2-dnf python-firewall
       become: true

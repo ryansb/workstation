@@ -1,10 +1,10 @@
 ---
-- include: firewalld.yml
-  become: true
-  when: secure_firewalld
 - include: sshd.yml
   become: true
   when: secure_ssh
+- include: firewalld.yml
+  become: true
+  when: secure_firewalld
 - include: fail2ban.yml
   become: true
   when: secure_fail2ban
@@ -55,6 +55,7 @@
     owner: root
     group: root
     mode: '0644'
+  become: true
 
 - name: load certs into trust store
   shell: update-ca-trust

@@ -1,5 +1,6 @@
 Host *.compute-1.amazonaws.com
     StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
     User ec2-user
 Host iowa
     StrictHostKeyChecking yes 
@@ -7,8 +8,10 @@ Host iowa
     User ryansb
 Host 192.168.122.*
     StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
 Host 192.168.1.*
     StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
 
 
 Host pkgs.devel.redhat.com

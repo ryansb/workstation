@@ -8,7 +8,7 @@
   become: true
   with_items:
   - dnssec-trigger
-  - dnssec-trigger-panel
+  #- dnssec-trigger-panel
   tags:
     - packages
   when: '"gui" in group_names'
