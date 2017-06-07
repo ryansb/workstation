@@ -13,6 +13,15 @@
   notify:
     - restart unbound
 
+- copy:
+    src: dlv.isc.org.key
+    dest: /etc/unbound/keys.d/dlv.isc.org.key
+    owner: root
+    group: unbound
+    mode: '0644'
+  notify:
+    - restart unbound
+
 - copy: src=unbound.conf dest=/etc/unbound/unbound.conf
         owner=root group=unbound mode=0644
   notify:
