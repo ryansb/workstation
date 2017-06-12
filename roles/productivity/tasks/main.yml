@@ -27,6 +27,9 @@
 
 - include: todo.yml
 
+- include: gsettings.yml
+  when: "'gui' in group_names"
+
 - dnf: name=msmtp state=latest
   become: true
   tags:

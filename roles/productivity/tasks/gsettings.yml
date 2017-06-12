@@ -1,0 +1,102 @@
+---
+- name: Turn off GUI notification sounds
+  gsettings:
+    schema: org.cinnamon.sounds
+    key: '{{ item }}'
+    value: false
+  with_items:
+  - close-enabled
+  - login-enabled
+  - logout-enabled
+  - map-enabled
+  - maximize-enabled
+  - minimize-enabled
+  - notification-enabled
+  - plug-enabled
+  - switch-enabled
+  - tile-enabled
+  - unmaximize-enabled
+  - unplug-enabled
+
+- name: configure gnome-terminal to always fullscreen
+  gsettings:
+    schema: org.{{ item }}.desktop.default-applications.terminal
+    key: exec-arg
+    value: '--hide-menubar --maximize -x'
+  with_items:
+  - cinnamon
+  - gnome
+
+- name: Customize default launcher CLI
+  lineinfile:
+    dest: /usr/share/applications/org.gnome.Terminal.desktop
+    regexp: "^Exec="
+    line: "Exec=gnome-terminal --hide-menubar --maximize"
+    backup: yes
+  become: true
+
+- name: Turn off F1-as-help in Gnome terminal
+  gsettings:
+    schema: org.gnome.Terminal.Legacy.Keybindings
+    path: /org/gnome/terminal/legacy/keybindings/
+    key: help
+    value: "'<Shift>F1'"
+
+- name: Configure colors and fonts for Gnome terminal
+  gsettings:
+    schema: org.gnome.Terminal.Legacy.Profile
+    path: /org/gnome/terminal/legacy/profiles:/:cfe0e083-63ea-4912-95bb-8c2426563129/
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    visible-name: Dark
+    use-theme-colors: false
+    foreground-color: "'rgb(255,255,255)'"
+    use-system-font: false
+    font: "'Inconsolatazi4 16'"
+
+- name: set default profile
+  gsettings:
+    schema: org.gnome.Terminal.ProfilesList
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    list: "['cfe0e083-63ea-4912-95bb-8c2426563129']"
+    default: "'cfe0e083-63ea-4912-95bb-8c2426563129'"
+
+- name: Never autostart Bluetooth devices
+  lineinfile:
+    dest: /etc/bluetooth/main.conf
+    regexp: "^AutoEnable="
+    line: "AutoEnable=false"
+    backup: yes
+  become: true
+
+- service:
+    name: bluetooth
+    state: stopped
+    enabled: false
+  become: true
+
+- name: Kill blueman GUI components
+  file:
+    path: /etc/xdg/autostart/blueman.desktop
+    state: absent
+    backup: yes
+  become: true
+
+- name: No blueberry tray icons
+  gsettings:
+    schema: org.blueberry
+    key: tray-enabled
+    value: false
+
+- name: Kill bluetooth status bars
+  gsettings:
+    schema: org.blueman.general
+    key: "{{ item }}"
+    value: false
+  with_items:
+  - notification-daemon
+  - show-statusbar
+  - show-toolbar
