@@ -1,7 +1,7 @@
 ---
 - include: libreswan.yml
   become: true
-  when: "{{ vpn_libreswan is defined and vpn_libreswan }}"
+  when: "vpn_libreswan is defined and vpn_libreswan"
 - include: openvpn.yml
   become: true
-  when: "{{ vpn_openvpn is defined and vpn_openvpn }}"
+  when: "vpn_openvpn is defined and vpn_openvpn"
