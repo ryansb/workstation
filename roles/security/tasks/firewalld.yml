@@ -42,6 +42,13 @@
     permanent: yes
     immediate: yes
     state: enabled
+    port: 22/tcp
+
+- firewalld:
+    zone: "{{ firewalld_zone }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
     port: "{{ item }}"
   with_items: "{{ enabled_ports }}"
 

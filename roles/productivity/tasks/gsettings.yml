@@ -52,8 +52,10 @@
     visible-name: Dark
     use-theme-colors: false
     foreground-color: "'rgb(255,255,255)'"
+    background-color: "'rgb(0,0,0)'"
     use-system-font: false
-    font: "'Inconsolatazi4 16'"
+    audible-bell: false
+    font: "'Hermit Medium 15'"
 
 - name: set default profile
   gsettings:
