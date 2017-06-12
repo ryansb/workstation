@@ -59,5 +59,6 @@
   become: true
 
 - name: load certs into trust store
-  shell: update-ca-trust
+  command: update-ca-trust
   become: true
+  changed_when: false

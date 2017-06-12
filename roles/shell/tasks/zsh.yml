@@ -42,7 +42,9 @@
     - zshrc
 
 - file: path=~/.zsh/.zhistory state=touch
+  changed_when: false
 - file: path=~/.zsh/.zcompdump state=touch
+  changed_when: false
 
 - copy: src=zsh/{{ item }}
         dest=~/.zsh/custom/{{ item }}

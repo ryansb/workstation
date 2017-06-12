@@ -6,6 +6,8 @@
 
 - shell: curl -s '{{ ad_dnsbl }}'
   register: ad_hosts
+  no_log: true
+  changed_when: false
 
 - template: src=ad_servers.conf.j2
             dest=/etc/unbound/local.d/ad_servers.conf
