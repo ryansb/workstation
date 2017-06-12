@@ -9,6 +9,7 @@
 - name: Determining username
   shell: whoami
   register: whoami
+  changed_when: false
 
 - name: Changing the default shell to zsh
   become: true
