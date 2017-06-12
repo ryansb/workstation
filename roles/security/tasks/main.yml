@@ -48,6 +48,7 @@
     group: root
     mode: '0644'
   become: true
+
 - name: Add RH internal CA
   copy:
     content: "{{ redhat_ca_2016 }}"
