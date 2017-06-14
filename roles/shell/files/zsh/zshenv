@@ -94,6 +94,9 @@ fi
 
 eval "$(which pyenv 2>/dev/null && pyenv virtualenv-init -)" 2>/dev/null
 
+# added for https://github.com/tj/n by http://git.io/n-install-repo
+export N_PREFIX="$HOME/.local/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/ryansb/.local/google-cloud-sdk/path.zsh.inc' 2>/dev/null
 
