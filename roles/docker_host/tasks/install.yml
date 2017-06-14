@@ -1,0 +1,8 @@
+---
+- dnf: name=docker-engine state=latest
+- group: name=docker state=present
+- command: groups
+  become_user: ryansb
+  changed_when: false
+  register: current_groups
+- user: name=ryansb group=ryansb groups='{{ current_groups.stdout.split(" ")[1:] | join(",") }},docker'

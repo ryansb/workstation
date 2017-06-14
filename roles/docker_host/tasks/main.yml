@@ -1,0 +1,7 @@
+---
+- include: upstream_repo.yml
+  become: yes
+  when: install_docker
+- include: install.yml
+  become: yes
+  when: install_docker
