@@ -1,10 +1,10 @@
 ---
-pyenv_version: 'v1.0.10'
-pyenv_venv_version: 'v20160716'
+pyenv_version: 'v1.1.1'
+pyenv_venv_version: 'v1.0.0'
 python_installs:
- - 2.7.12
- - 3.4.3
- - 3.5.2
+ - 2.7.13
+ - 3.4.6
+ - 3.5.3
  - 3.6.1
 
 rbenv_version: 'master'
