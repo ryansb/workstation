@@ -1,0 +1,23 @@
+---
+- name: Add DDNS script to ~/.bin
+  copy:
+    src: ddns.py
+    dest: /home/ryansb/.bin/ddns.py
+    owner: ryansb
+    group: ryansb
+    mode: '0755'
+
+- name: Set config file with Route53 zone+domain
+  copy:
+    dest: /home/ryansb/.ddns.conf
+    content: >
+      {"zone_id": "Z24GVAZRC8JUKL", "root": "ryansb.com"}
+    owner: ryansb
+    group: ryansb
+    mode: '0644'
+
+- name: Add DDNS updating cronjob
+  cron:
+    name: run_ddns
+    minute: '*/10'
+    job: "~/.pyenv/versions/ddns/bin/python ~/.bin/ddns.py >> /tmp/ddns.log"

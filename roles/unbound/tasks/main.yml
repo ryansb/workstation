@@ -18,3 +18,5 @@
 
 - include: conf.yml
   become: true
+
+- include: ddns.yml
