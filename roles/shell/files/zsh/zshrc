@@ -40,7 +40,7 @@ REPORTTIME=5
 function server() {
     local port="${1:-8000}"
     open "http://localhost:${port}/"
-    python -m SimpleHTTPServer "$port"
+    python -m SimpleHTTPServer "$port" || python -m http.server "$port"
 }
 
 ### CD frecency (a portmateau of frequency and recent)
