@@ -1,0 +1,2 @@
+#!/usr/bin/zsh
+former $@ | sed -n '1!p' | sed '$ d'

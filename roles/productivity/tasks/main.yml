@@ -53,6 +53,12 @@
 - shell: creates=~/.local/bin/awslogs
          pipsi install awslogs
 
+- shell: creates=~/.local/bin/formica
+         pipsi install formica-cli
+
+- shell: creates=~/.local/bin/former
+         pipsi install former
+
 - file: path=~/.aws state=directory
 
 - template: src={{ item }}

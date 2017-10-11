@@ -65,6 +65,9 @@ autocmd FileType yaml setlocal ts=2 shiftwidth=2 expandtab shiftround sts=2 inde
 " Yank to system clipboard
 map <Leader>y "+y
 
+" Autoinsert fillable templates of CloudFormation resources
+map <Leader>r :read !form 
+
 " engage live-save for editing blog posts w/ browser draft view
 map <Leader>s :autocmd TextChanged,TextChangedI <buffer> silent write<CR>
 
