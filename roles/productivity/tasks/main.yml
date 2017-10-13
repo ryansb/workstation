@@ -35,29 +35,22 @@
   tags:
   - packages
 
-- shell: creates=~/.local/bin/bugwarrior-pull
-         pipsi install bugwarrior
+- shell: creates=~/.local/bin/{{ item }}
+         pipsi install {{ item }}
+  with_items:
+    - git-review
+    - git-sweep
+    - awslogs
+    - awsume
+    - former
 
-- shell: creates=~/.local/bin/taskforge
-         pipsi install taskforge
-
-- shell: creates=~/.local/bin/git-review
-         pipsi install git-review
-
-- shell: creates=~/.local/bin/git-sweep
-         pipsi install git-sweep
-
-- shell: creates=~/.local/bin/aws
-         pipsi install awscli
-
-- shell: creates=~/.local/bin/awslogs
-         pipsi install awslogs
-
-- shell: creates=~/.local/bin/formica
-         pipsi install formica-cli
-
-- shell: creates=~/.local/bin/former
-         pipsi install former
+- shell: creates=~/.local/bin/{{ item.bin }}
+         pipsi install {{ item.pip }}
+  with_items:
+    - bin: aws
+      pip: awscli
+    - bin: formica
+      pip: formica-cli
 
 - file: path=~/.aws state=directory
 
