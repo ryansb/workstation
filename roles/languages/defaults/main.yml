@@ -1,10 +1,10 @@
 ---
-pyenv_version: 'v1.1.1'
-pyenv_venv_version: 'v1.0.0'
+pyenv_version: 'v1.1.5'
+pyenv_venv_version: 'v1.1.1'
 python_installs:
- - 2.7.13
- - 3.5.3
- - 3.6.1
+ - 2.7.14
+ - 3.5.4
+ - 3.6.3
 
 rbenv_version: 'master'
 rbenv_build_version: 'v20150818'
