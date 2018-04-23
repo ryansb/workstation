@@ -182,3 +182,13 @@ endfunction
 command! GoVet :call s:GoVet()
 nnoremap <Leader>v :GoVet<CR>
 
+
+" Show differences of a file that was changed on disk that doesn't match the buffer
+function! s:Hmm()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! Hmm call s:Hmm()
