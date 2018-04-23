@@ -20,10 +20,10 @@
            enabled=true
            state=started
 
-- shell: firewall-cmd --get-zones
+- command: firewall-cmd --get-zones
   register: firewall_zones
 
-- shell: firewall-cmd --get-default-zone
+- command: firewall-cmd --get-default-zone
   register: firewall_default_zone
   changed_when: false
 
@@ -53,5 +53,5 @@
     port: "{{ item }}"
   with_items: "{{ enabled_ports }}"
 
-- shell: firewall-cmd --set-default-zone={{ firewalld_zone }}
+- command: firewall-cmd --set-default-zone={{ firewalld_zone }}
   when: firewalld_zone not in firewall_default_zone.stdout
