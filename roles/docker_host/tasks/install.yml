@@ -1,5 +1,5 @@
 ---
-- dnf: name=docker-engine state=latest
+- dnf: name=docker-ce state=latest
 - group: name=docker state=present
 - command: groups
   become_user: ryansb

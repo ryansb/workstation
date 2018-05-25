@@ -1,13 +1,7 @@
 ---
-- copy:
+- get_url:
     dest: /etc/yum.repos.d/docker.repo
     mode: 0644
     owner: root
     group: root
-    content: |
-      [dockerrepo]
-      name=Docker Repository
-      baseurl=https://yum.dockerproject.org/repo/main/fedora/$releasever/
-      enabled=1
-      gpgcheck=1
-      gpgkey=https://yum.dockerproject.org/gpg
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
