@@ -12,6 +12,7 @@
   - rsync
   - screen
   - strace
+  - dnf-plugins-core
   - svn
   - tar
   - tmux
