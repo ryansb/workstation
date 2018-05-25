@@ -2,7 +2,7 @@
 pyenv_version: 'v1.2.4'
 pyenv_venv_version: 'v1.1.3'
 python_installs:
- - 2.7.14
+ - 2.7.15
  - 3.5.4
  - 3.6.3
 

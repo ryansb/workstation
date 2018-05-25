@@ -11,4 +11,4 @@
       enabled=1
       gpgcheck=1
 
-- dnf: name=google-chrome state=latest
+- dnf: name=google-chrome-stable state=latest
