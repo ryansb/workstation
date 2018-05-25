@@ -20,7 +20,7 @@
  }
 
 [domain_realm]
-{% for domain, realm in krb5_realms.iteritems() %} {{ domain }} = {{ realm }}
+{% for domain, realm in krb5_realms.items() %} {{ domain }} = {{ realm }}
 {% endfor %}
 
 [appdefaults]

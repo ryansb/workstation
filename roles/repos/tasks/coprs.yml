@@ -4,3 +4,4 @@
     name: '{{ item }}'
     state: latest
   with_items: '{{ copr_packages }}'
+  ignore_errors: true

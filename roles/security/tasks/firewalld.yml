@@ -2,7 +2,14 @@
   tags:
   - packages
 
-- dnf: name=python-firewall state=present
+- dnf: name='python3-firewall' state=present
+  tags:
+  - packages
+  ignore_errors: true
+  register: py3_firewall
+
+- dnf: name='python-firewall' state=present
+  when: py3_firewall is failed
   tags:
   - packages
 
