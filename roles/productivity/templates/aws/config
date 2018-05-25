@@ -1,8 +1,0 @@
-[default]
-region = us-east-1
-[profile personal]
-region = us-east-1
-[profile slscode]
-region = us-west-2
-[profile clearview]
-region = us-east-1
