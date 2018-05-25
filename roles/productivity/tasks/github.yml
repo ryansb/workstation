@@ -1,6 +1,7 @@
 ---
 - stat: path="{{ ansible_user_dir }}/.bin/hub"
   register: gh_binary
+  changed_when: false
 
 - unarchive: src="{{ hub_release }}" dest=/tmp remote_src=yes
   when: gh_binary.stat.exists == False

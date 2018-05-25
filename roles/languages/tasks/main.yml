@@ -1,4 +1,17 @@
 ---
+- dnf: name={{ item }} state=latest
+  name: install R, Go, and Haskell
+  become: true
+  with_items:
+  - haskell-platform
+  - R
+  - autoconf
+  - make
+  - golang
+  tags:
+    - packages
+  when: ansible_distribution == 'Fedora'
+
 - include: python.yml
 - include: ruby.yml
 
@@ -12,16 +25,3 @@
 #  get_url: dest=/tmp/rustup.sh url=https://static.rust-lang.org/rustup.sh mode=0755
 #- name: Install rust
 #  shell: creates=~/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix=~/.rustlang
-
-- dnf: name={{ item }} state=latest
-  name: install R, Go, and Haskell
-  become: true
-  with_items:
-  - haskell-platform
-  - R
-  - autoconf
-  - make
-  - golang
-  tags:
-    - packages
-  when: ansible_distribution == 'Fedora'

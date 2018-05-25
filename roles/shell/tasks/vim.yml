@@ -18,6 +18,7 @@
 - shell: "vim +Bundle{{ item }} +qall 2>/dev/null >/dev/null"
   register: command_result
   ignore_errors: true
+  changed_when: false
   with_items:
   - Clean
   - Install

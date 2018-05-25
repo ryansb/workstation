@@ -1,2 +1,6 @@
-- shell: "dnf copr enable -y {{ item }}"
+- command: "dnf copr enable -y {{ item }}"
   with_items: "{{ use_coprs }}"
+- dnf:
+    name: '{{ item }}'
+    state: latest
+  with_items: '{{ copr_packages }}'

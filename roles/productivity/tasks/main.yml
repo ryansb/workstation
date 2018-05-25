@@ -57,15 +57,11 @@
 - template: src={{ item }}
             dest=~/.{{ item }}
   with_items:
-  - bugwarriorrc
   - mailrc
   - msmtprc
-  - taskforgerc
-  - aws/config
 
 - copy: src=rht_web_proxy.pac dest=/etc/redhat-corp-proxy.pac
   become: true
 
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600
-- file: path=~/.bugwarriorrc mode=0600

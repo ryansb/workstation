@@ -7,7 +7,7 @@
 
 ### Install all the ZSH plugins & such
 - name: Determining username
-  shell: whoami
+  command: whoami
   register: whoami
   changed_when: false
 
@@ -57,9 +57,10 @@
 
 - file: state=directory name=~/.zsh/.zcompcache
 
-- file: src=~/.zsh/{{ item }}
-        dest=~/{{ item }}
-        state=link
+- file:
+    src: ~/.zsh/{{ item }}
+    dest: ~/{{ item }}
+    state: link
   with_items:
     - .zcompcache
     - .zhistory
@@ -70,10 +71,12 @@
     - .zshenv
     - .zshrc
 
-- file: src=~/.zsh/custom/prompt
-        dest=~/.zprezto/modules/prompt/functions/prompt_ryansb_setup
-        state=link
+- file:
+    src: ~/.zsh/custom/prompt
+    dest: ~/.zprezto/modules/prompt/functions/prompt_ryansb_setup
+    state: link
 
-- file: src=~/.zsh/custom
-        dest=~/.zprezto/modules/custom
-        state=link
+- file:
+    src: ~/.zsh/custom
+    dest: ~/.zprezto/modules/custom
+    state: link

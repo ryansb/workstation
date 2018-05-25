@@ -8,10 +8,10 @@
       [Dropbox]
       name=Dropbox Repository
       enabled=1
-      baseurl=http://linux.dropbox.com/fedora/$releasever/
+      baseurl=https://linux.dropboxstatic.com/fedora/$releasever/
       gpgkey=https://linux.dropbox.com/fedora/rpm-public-key.asc
       skip_if_unavailable=1
-#- name: Get Dropbox rpm
-#  dest=/tmp/dropbox.rpm url="https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm"
 
-#- dnf: name=/tmp/dropbox.rpm state=installed
+- dnf:
+    name: dropbox
+    state: latest

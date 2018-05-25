@@ -5,9 +5,9 @@
     - ../vars/global.yml
     - ../vars/secrets.yml
   roles:
-    - security
     - ssh
-    - unbound
+    - security
+    #- unbound
     - vpn
     - krb5
     - repos

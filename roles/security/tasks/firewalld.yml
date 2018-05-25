@@ -22,6 +22,7 @@
 
 - command: firewall-cmd --get-zones
   register: firewall_zones
+  changed_when: false
 
 - command: firewall-cmd --get-default-zone
   register: firewall_default_zone
