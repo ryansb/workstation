@@ -98,6 +98,7 @@
     schema: org.blueman.general
     key: "{{ item }}"
     value: false
+  ignore_errors: true
   with_items:
   - notification-daemon
   - show-statusbar

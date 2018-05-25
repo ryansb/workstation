@@ -92,8 +92,6 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-eval "$(which pyenv 2>/dev/null && pyenv virtualenv-init -)" 2>/dev/null
-
 # added for https://github.com/tj/n by http://git.io/n-install-repo
 export N_PREFIX="$HOME/.local/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 

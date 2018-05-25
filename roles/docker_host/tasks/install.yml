@@ -1,5 +1,8 @@
 ---
-- dnf: name=docker-ce state=latest
+- dnf:
+    name: docker-ce
+    state: latest
+    enablerepo: docker-ce-edge,docker-ce-stable
 - group: name=docker state=present
 - command: groups
   become_user: ryansb

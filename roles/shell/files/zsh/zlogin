@@ -3,9 +3,18 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-
+#
 # deduplicate path entries
 typeset -U path
+
+# Execute code that does not affect the current session in the background.
+{
+  # Compile the completion dump to increase startup speed.
+  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+    zcompile "$zcompdump"
+  fi
+} &!
 
 zstyle -t ':prezto:module:zcompile' enabled
 case $? in
@@ -15,7 +24,6 @@ case $? in
 		autoload -U zrecompile
 		local ZDOTDIR="${ZDOTDIR:-$HOME}"
 		zrecompile -q -p \
-			-M "$ZDOTDIR"/.zcompdump -- \
 			-R "$HOME"/.zshrc -- \
 			-R "$HOME"/.zlogin -- \
 			-R "$HOME"/.zprofile -- \
