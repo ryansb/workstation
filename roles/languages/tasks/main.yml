@@ -15,11 +15,19 @@
 - include: python.yml
 - include: ruby.yml
 
-- name: Install node version manager and make sure stable & LTS are installed
-  shell: >
-    curl -vsL https://git.io/n-install | N_PREFIX=~/.local/n bash -s -- -n stable lts
-  args:
-    creates: /home/ryansb/.local/n/bin/n
+- block:
+  - name: grab n install script
+    get_url:
+      url: https://git.io/n-install
+      dest: ~/.bin/n-install.sh
+      mode: '0754'
+  - name: Install node version manager and make sure stable & LTS are installed
+    shell: >
+      ~/.bin/n-install.sh -y -n stable lts
+    environment:
+      N_PREFIX: '{{ ansible_user_dir }}/.local/n'
+    args:
+      creates: '{{ ansible_user_dir }}/.local/n/bin/n'
 
 - name: make R module dir
   file: path=~/.rlang/lib/ state=directory
