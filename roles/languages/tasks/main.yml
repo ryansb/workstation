@@ -15,13 +15,13 @@
 - include: python.yml
 - include: ruby.yml
 
+- name: Install node version manager and make sure stable & LTS are installed
+  shell: >
+    curl -vsL https://git.io/n-install | N_PREFIX=~/.local/n bash -s -- -n stable lts
+  args:
+    creates: /home/ryansb/.local/n/bin/n
+
 - name: make R module dir
   file: path=~/.rlang/lib/ state=directory
 - copy: src=Rprofile dest=~/.Rprofile
 - copy: src=Renviron dest=~/.Renviron
-
-# There's some issue here with the ldpath -- commenting out for now.
-#- name: Download rust setup script
-#  get_url: dest=/tmp/rustup.sh url=https://static.rust-lang.org/rustup.sh mode=0755
-#- name: Install rust
-#  shell: creates=~/.rustlang/bin/rustc /tmp/rustup.sh --verbose --yes --disable-sudo --prefix=~/.rustlang
