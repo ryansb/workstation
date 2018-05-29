@@ -1,11 +1,11 @@
 [gui]
 pt-boat ansible_ssh_host=pt-boat.local
 kilo ansible_ssh_host=kilo.local
-hornet ansible_ssh_host=hornet.home
+hornet ansible_ssh_host=hornet.home ansible_python_interpreter=/usr/bin/python3
 warspite ansible_ssh_host=warspite.home
 seawolf ansible_ssh_host=seawolf.home ansible_python_interpreter=/usr/bin/python3
 
 [work]
-kilo ansible_ssh_host=kilo.local
-hornet ansible_ssh_host=hornet.home
-seawolf ansible_ssh_host=seawolf.home
+kilo
+hornet
+seawolf
