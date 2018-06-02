@@ -41,3 +41,14 @@ function slack-all {
         --name all-slack \
         ryansb/slack
 }
+
+function shellcheck {
+    del_stopped shellcheck >/dev/null 2>/dev/null
+    docker run -it \
+        -v /etc/localtime:/etc/localtime:ro \
+        -v "${PWD}:/mnt:ro" \
+        --device /dev/dri \
+        --ipc="host" \
+        --name shellcheck \
+        ryansb/shellcheck shellcheck /mnt/"${1}"
+}
