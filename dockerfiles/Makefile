@@ -31,3 +31,9 @@ bluejeans: bluejeans.phony
 bluejeans.phony:
 	docker build bluejeans -t ryansb/bluejeans:$$(date +%Y-%m-%d)
 	docker build bluejeans -t ryansb/bluejeans:latest
+
+zoom: zoom.phony
+
+zoom.phony:
+	docker build bluejeans -t ryansb/zoom-us:$$(date +%Y-%m-%d)
+	docker build bluejeans -t ryansb/zoom-us:latest
