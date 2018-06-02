@@ -64,3 +64,7 @@
 
 # msmtp wants its config to be secret
 - file: path=~/.msmtprc mode=0600
+
+- name: Install the jetbrains toolbox for pycharm
+  shell: creates=~/.bin/jetbrains-toolbox
+    curl -vLs https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.8.3868.tar.gz | (cd ~/.bin && tar -xzv --strip-components=1 jetbrains-toolbox-1.8.3868/jetbrains-toolbox)
