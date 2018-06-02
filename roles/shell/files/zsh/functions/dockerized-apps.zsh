@@ -52,3 +52,15 @@ function shellcheck {
         --name shellcheck \
         ryansb/shellcheck shellcheck /mnt/"${1}"
 }
+
+function former {
+    del_stopped former >/dev/null 2>/dev/null
+    mkdir /tmp/former >/dev/null 2>/dev/null
+    docker run -it \
+        -v /etc/localtime:/etc/localtime:ro \
+        -v "/tmp/former:/tmp" \
+        --device /dev/dri \
+        --ipc="host" \
+        --name former \
+        ryansb/former former "${@}"
+}
