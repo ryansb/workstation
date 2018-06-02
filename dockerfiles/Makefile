@@ -1,4 +1,4 @@
-all: slack evince shellcheck
+all: slack evince shellcheck bluejeans
 
 clean:
 	docker images --format '{{ .Repository }} {{ .ID }}' | grep ryansb | cut -f2 -d' ' | sort | uniq | xargs docker rmi -f
@@ -25,3 +25,9 @@ former: former.phony
 
 former.phony:
 	docker build former -t ryansb/former:latest
+
+bluejeans: bluejeans.phony
+
+bluejeans.phony:
+	docker build bluejeans -t ryansb/bluejeans:$$(date +%Y-%m-%d)
+	docker build bluejeans -t ryansb/bluejeans:latest
