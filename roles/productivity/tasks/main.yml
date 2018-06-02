@@ -42,7 +42,6 @@
     - git-sweep
     - awslogs
     - awsume
-    - former
 
 - shell: creates=~/.local/bin/{{ item.bin }}
          pipsi install {{ item.pip }}
