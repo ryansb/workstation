@@ -9,9 +9,10 @@
   cron:
     name: docker_kill_unused_volumes
     hour: '*/3'
+    minute: 5
     job: "pgrep dockerd && docker volume prune -f"
 - name: Add cronjob to remove stopped containers
   cron:
     name: docker_remove_stopped_containers
     hour: '*/3'
-    job: "pgrep dockerd && docker volume prune -f"
+    job: "pgrep dockerd && docker ps -aq | xargs docker rm"
