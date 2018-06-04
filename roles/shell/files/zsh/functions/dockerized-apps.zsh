@@ -71,6 +71,7 @@ function bluejeans {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
+        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         --ipc="host" \
@@ -86,6 +87,7 @@ function zoom {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
+        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         --ipc="host" \
