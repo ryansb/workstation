@@ -103,3 +103,5 @@ alias vgm="vi \$(git ls-files --modified) -p"
 alias stdoutjack="sudo strace -e trace=write -e write=1,2 -p " # <PID> hook into stdout and stderr of a running process
 
 xsource ~/.zsh/functions/*.zsh
+#AWSume alias to source the AWSume script
+alias awsume=". awsume"

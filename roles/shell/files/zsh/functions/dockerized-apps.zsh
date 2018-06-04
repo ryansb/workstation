@@ -16,7 +16,6 @@ function slack-focused {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
-        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         -v "${HOME}/.slack/focused-slack:/root/.config/Slack" \
@@ -33,7 +32,6 @@ function slack-all {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
-        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         -v "${HOME}/.slack/all-slack:/root/.config/Slack" \
@@ -73,7 +71,6 @@ function bluejeans {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
-        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         --ipc="host" \
@@ -89,7 +86,6 @@ function zoom {
         -e "DISPLAY=unix${DISPLAY}" \
         --device /dev/snd \
         --device /dev/dri \
-        --device /dev/video0 \
         --group-add audio \
         --group-add video \
         --ipc="host" \
