@@ -41,7 +41,8 @@
     - git-review
     - git-sweep
     - awslogs
-    - awsume
+    - cfn-lint
+    - cfn-flip
 
 - shell: creates=~/.local/bin/{{ item.bin }}
          pipsi install {{ item.pip }}
