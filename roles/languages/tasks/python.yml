@@ -43,14 +43,6 @@
   tags:
     - packages
 
-- pip: name={{ item }} state=latest
-  become: true
-  with_items:
-  - wheel
-  - pip
-  - pipsi
-  tags:
-  - packages
 
 - file: state=directory name=~/.local
 

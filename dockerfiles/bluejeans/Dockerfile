@@ -14,7 +14,7 @@
 #    --name bluejeans \
 #    ryansb/bluejeans
 
-FROM fedora:28
+FROM fedora:27
 LABEL maintainer "Ryan Scott Brown <sb@ryansb.com>"
 
 ENV LC_ALL en_US.UTF-8
