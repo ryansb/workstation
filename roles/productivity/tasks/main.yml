@@ -17,6 +17,15 @@
   tags:
   - packages
 
+- dnf: name={{ item }} state=disabled
+  become: true
+  loop:
+  - abrtd
+  - abrt-journal-core
+  - abrt-oops
+  - abrt-vmcore
+  - abrt-xorg
+
 - include: teensy.yml
   when: ansible_distribution == 'Fedora' and teensy_dev == true
 
