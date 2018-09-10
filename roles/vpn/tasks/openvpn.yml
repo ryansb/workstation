@@ -1,5 +1,6 @@
 ---
-
+# To bring this up by CLI, you need to supply a password
+# sudo nmcli con up rhvpn --ask
 - name: copy openvpn config template
   template:
     src: networkmanager-ovpn.conf
